@@ -15,8 +15,8 @@ const config: QuartzConfig = {
     analytics: {
       provider: "plausible",
     },
-    locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    locale: "ru-R",
+    baseUrl: "remain-nameless.github.io",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
@@ -25,7 +25,7 @@ const config: QuartzConfig = {
       typography: {
         header: {
 			font: "Cormorant Unicase",
-			size: 30;
+			font-size: 30,
 		}
         body: "Jost",
         code: "IBM Plex Mono",
