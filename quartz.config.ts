@@ -23,7 +23,8 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Cormorant Unicase", 35px;
+        header: "Cormorant Unicase",
+			font-size: 2em;
         body: "Jost",
         code: "IBM Plex Mono",
       },
