@@ -11,3 +11,10 @@ Body.afterDOMLoaded = clipboardScript
 Body.css = clipboardStyle
 
 export default (() => Body) satisfies QuartzComponentConstructor
+body {
+  background-image: url('https://i.redd.it/b0566dl3sw121.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
