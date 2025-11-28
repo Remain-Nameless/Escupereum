@@ -25,7 +25,7 @@ const config: QuartzConfig = {
       typography: {
         header: {
 			font: "Cormorant Unicase",
-			font-size: 30,
+			size: 30,
 		}
         body: "Jost",
         code: "IBM Plex Mono",
