@@ -25,7 +25,7 @@ const config: QuartzConfig = {
       typography: {
         header: "Montserrat Alternates",
         body: "Jost",
-        code: "IBM Plex Mono",
+        code: "Roboto",
       },
       colors: {
         lightMode: {
