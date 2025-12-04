@@ -29,6 +29,7 @@ const config: QuartzConfig = {
 		{ title: "Общество", slug: "/society" },
 		],
 	}
+  }
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
