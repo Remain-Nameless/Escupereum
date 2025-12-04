@@ -19,17 +19,6 @@ const config: QuartzConfig = {
     baseUrl: "remain-nameless.github.io/Escupereum/",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "published",
-	navbar: {
-		pages: [
-		{ title: "О проекте", slug: "/about" },
-		{ title: "Мироздание", slug: "/cosmology" },
-		{ title: "История", slug: "/history" },
-		{ title: "География", slug: "/geography" },
-		{ title: "Государства", slug: "/states" },
-		{ title: "Общество", slug: "/society" },
-		],
-	}
-  }
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
