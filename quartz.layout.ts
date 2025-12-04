@@ -4,15 +4,8 @@ import * as Component from "./quartz/components"
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [
-	Component.Breadcrumbs({
-	spacerSymbol: "❯", // symbol between crumbs
-	rootName: "Home", // name of first/root element
-	resolveFrontmatterTitle: true, // whether to resolve folder names through frontmatter titles
-	showCurrentPage: true, // whether to display the current page in the breadcrumbs
-	})
-	],
-  afterBody: [],
+  header: [],
+  left: [Navbar()],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",
