@@ -93,7 +93,6 @@ export interface QuartzConfig {
 export interface FullPageLayout {
   head: QuartzComponent
   header: QuartzComponent[]
-  beforeBody: QuartzComponent[]
   pageBody: QuartzComponent
   afterBody: QuartzComponent[]
   left: QuartzComponent[]
