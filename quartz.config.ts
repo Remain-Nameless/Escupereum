@@ -26,19 +26,19 @@ const config: QuartzConfig = {
         header: "Montserrat Alternates",
         body: "Jost",
         code: "Roboto",
+		color: "#5c436e",
       },
       colors: {
         lightMode: {
-          light: "#faf8f8",
+          light: "#CEC2C8",
           lightgray: "#e5e5e5",
           gray: "#b8b8b8",
           darkgray: "#4e4e4e",
-          dark: "#2b2b2b",
+          dark: "#1A4A4E",
           secondary: "#284b63",
           tertiary: "#84a59d",
           highlight: "rgba(143, 159, 169, 0.15)",
           textHighlight: "#fff23688",
-		  text: "#5C436E",
         },
         darkMode: {
           light: "#161618",
