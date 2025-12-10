@@ -75,7 +75,7 @@ export const defaultListPageLayout: PageLayout = {
     Component.Explorer({
 	filterFn: (node) => {
     // set containing names of everything you want to filter out
-    const omit = new Set(["Абсурдно длинная пустая заметка", "tags", "термин"])
+    const omit = new Set(["Hidden", "tags", "термин"])
  
     // can also use node.slug or by anything on node.data
     // note that node.data is only present for files that exist on disk
