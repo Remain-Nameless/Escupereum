@@ -43,14 +43,14 @@ Component.Explorer({
   folderDefaultState: "collapsed", // default state of folders ("collapsed" or "open")
   useSavedState: true, // whether to use local storage to save "state" (which folders are opened) of explorer
   // omitted but shown later
-  filterFn: (node) => {
+  filterFn: (folder) => {
     // set containing names of everything you want to filter out
     const omit = new Set(["Hidden"])
  
     // can also use node.slug or by anything on node.data
     // note that node.data is only present for files that exist on disk
     // (e.g. implicit folder nodes that have no associated index.md)
-    return !omit.has(node.displayName.toLowerCase(["Hidden"]))
+    return !omit.has(node.displayName.toLowerCase())
   },
   // what order to apply functions in
   order: ["filter", "map", "sort"],
