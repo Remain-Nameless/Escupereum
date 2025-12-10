@@ -46,7 +46,7 @@ Component.Explorer({
   // omitted but shown later
   filterFn: (node) => {
     // set containing names of everything you want to filter out
-    const omit = new Set(["Hidden"])
+    const omit = new Set([folders: "Hidden"])
  
     // can also use node.slug or by anything on node.data
     // note that node.data is only present for files that exist on disk
@@ -80,9 +80,22 @@ export const defaultListPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({
-	filterFn: (node) => {
-    return node.data?.tags?.includes("explorerexclude") !== true
+	title: "Содержание", // title of the explorer component
+  folderClickBehavior: "collapse", // what happens when you click a folder ("link" to navigate to folder page on click or "collapse" to collapse folder on click)
+  folderDefaultState: "collapsed", // default state of folders ("collapsed" or "open")
+  useSavedState: true, // whether to use local storage to save "state" (which folders are opened) of explorer
+  // omitted but shown later
+  filterFn: (node) => {
+    // set containing names of everything you want to filter out
+    const omit = new Set([folders: "Hidden"])
+ 
+    // can also use node.slug or by anything on node.data
+    // note that node.data is only present for files that exist on disk
+    // (e.g. implicit folder nodes that have no associated index.md)
+    return !omit.has(node.displayName.toLowerCase())
   },
+  // what order to apply functions in
+  order: ["filter", "map", "sort"],
 }),
   ],
   right: [],
