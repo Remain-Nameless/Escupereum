@@ -1,4 +1,5 @@
 ---
-explorerexclude:
+tags:
+  - explorerexclude
 ---
 мм
