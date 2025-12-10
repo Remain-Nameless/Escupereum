@@ -46,7 +46,7 @@ Component.Explorer({
   // omitted but shown later
   filterFn: (node) => {
     // set containing names of everything you want to filter out
-    const omit = new Set([folders: "Hidden"])
+    const omit = new Set(["Hidden"])
  
     // can also use node.slug or by anything on node.data
     // note that node.data is only present for files that exist on disk
@@ -87,7 +87,7 @@ export const defaultListPageLayout: PageLayout = {
   // omitted but shown later
   filterFn: (node) => {
     // set containing names of everything you want to filter out
-    const omit = new Set([folders: "Hidden"])
+    const omit = new Set(["Hidden"])
  
     // can also use node.slug or by anything on node.data
     // note that node.data is only present for files that exist on disk
