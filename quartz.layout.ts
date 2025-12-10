@@ -43,9 +43,9 @@ Component.Explorer({
   folderDefaultState: "collapsed", // default state of folders ("collapsed" or "open")
   useSavedState: true, // whether to use local storage to save "state" (which folders are opened) of explorer
   // omitted but shown later
-  filterFn: (folder) => {
+  filterFn: (node) => {
     // set containing names of everything you want to filter out
-    const omit = new Set(["Hidden"])
+    const omit = new Set(["Hidden", "Ужас перед Бездной"])
  
     // can also use node.slug or by anything on node.data
     // note that node.data is only present for files that exist on disk
