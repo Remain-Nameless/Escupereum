@@ -46,7 +46,11 @@ const defaultOptions: Options = {
       return -1
     }
   },
-  filterFn: (node) => node.slugSegment !== "tags",
+  filterFn: (node) => {
+	  node.slugSegment !== ["tags", "Hidden"],
+	  const omit = new Set(["authoring content", "tags", "advanced"])
+	  return !omit.has(node.displayName.toLowerCase())
+  }
   order: ["filter", "map", "sort"],
 }
 
