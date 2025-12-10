@@ -45,7 +45,7 @@ Component.Explorer({
   // omitted but shown later
   filterFn: (node) => {
     // set containing names of everything you want to filter out
-    const omit = new Set([Ужас_перед_Бездной])
+    const omit = new Set(["Ужас_перед_Бездной"])
  
     // can also use node.slug or by anything on node.data
     // note that node.data is only present for files that exist on disk
