@@ -110,6 +110,16 @@ a {
       }
     }
   }
+
+  &.external .external-icon {
+    height: 0ex;
+    margin: 0 0em;
+	opacity: 0;
+
+    > path {
+      fill: var(--dark);
+    }
+  }
 }
 
 .flex-component {
