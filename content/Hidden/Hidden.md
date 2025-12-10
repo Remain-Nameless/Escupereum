@@ -1,4 +1,4 @@
 ---
-tags:
+tags: hidden
 ---
 мм
