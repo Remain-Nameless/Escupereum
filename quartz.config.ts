@@ -16,7 +16,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "ru-RU",
-    baseUrl: "remain-nameless.github.io/Escupereum/",
+    baseUrl: "Escupereum.world",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "published",
     theme: {
