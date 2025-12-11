@@ -22,19 +22,6 @@ export interface Options {
   order: OrderEntries[]
 }
 
-// Вспомогательная функция для проверки тегов
-const hasExplorerExcludeTag = (node: FileTrieNode): boolean => {
-  if (!node.file?.frontmatter?.tags) return false
-  
-  const tags = node.file.frontmatter.tags
-  if (Array.isArray(tags)) {
-    return tags.includes("explorerexclude") || 
-           tags.some(tag => tag.startsWith("explorerexclude/"))
-  }
-  
-  return false
-}
-
 const defaultOptions: Options = {
   folderDefaultState: "collapsed",
   folderClickBehavior: "link",
@@ -60,12 +47,30 @@ const defaultOptions: Options = {
     }
   },
   filterFn: (node) => {
-    // Всегда исключаем саму страницу тега "explorerexclude"
-    const isExplorerExcludePage = JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude"])
-    
-    // Для всех остальных узлов применяем базовую фильтрацию
-    if (isExplorerExcludePage) {
+    // Исключаем страницу тега "explorerexclude"
+    if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude"])) {
       return false
+    }
+    
+    // Исключаем файлы с тегом "explorerexclude"
+    if (node.file && node.file.frontmatter?.tags) {
+      const tags = node.file.frontmatter.tags
+      // Проверяем, содержит ли файл тег "explorerexclude"
+      if (Array.isArray(tags) && tags.includes("explorerexclude")) {
+        return false
+      }
+      // Также проверяем все префиксы тегов
+      const tagPrefixes = tags.flatMap(tag => {
+        const segments = tag.split("/")
+        const prefixes = []
+        for (let i = 1; i <= segments.length; i++) {
+          prefixes.push(segments.slice(0, i).join("/"))
+        }
+        return prefixes
+      })
+      if (tagPrefixes.includes("explorerexclude")) {
+        return false
+      }
     }
     
     return true
@@ -83,61 +88,26 @@ export default ((userOpts?: Partial<Options>) => {
   const opts: Options = { ...defaultOptions, ...userOpts }
   const { OverflowList, overflowListAfterDOMLoaded } = OverflowListFactory()
 
-  const Explorer: QuartzComponent = ({ cfg, displayClass, fileData }: QuartzComponentProps) => {
-    const id = `explorer-${numExplorers++}`
-    
-    // Определяем, находимся ли мы на странице тега (кроме explorerexclude)
-    const isTagPage = fileData?.slug?.startsWith("tags/")
-    const currentTag = isTagPage ? fileData.slug.split("tags/")[1]?.split("/")[0] || "" : ""
-    const isExplorerExcludeTagPage = currentTag === "explorerexclude"
-    
-    // Создаем контекстно-зависимую функцию фильтрации
-    const createFilterFn = (): string => {
-      if (isTagPage && !isExplorerExcludeTagPage) {
-        // На странице тега (кроме explorerexclude) - фильтруем файлы с тегом explorerexclude
-        return `function(node) {
-          // Исключаем саму страницу тега "explorerexclude"
-          if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude"])) {
-            return false
-          }
-          
-          // Исключаем файлы с тегом "explorerexclude"
-          if (node.file && node.file.frontmatter && node.file.frontmatter.tags) {
-            const tags = node.file.frontmatter.tags
-            if (Array.isArray(tags)) {
-              if (tags.includes("explorerexclude")) {
-                return false
-              }
-              // Проверяем вложенные теги
-              for (const tag of tags) {
-                if (tag.startsWith("explorerexclude/")) {
-                  return false
-                }
-              }
-            }
-          }
-          
-          return true
-        }`
-      } else {
-        // На других страницах - используем стандартную фильтрацию
-        return opts.filterFn.toString()
-      }
-    }
-
-    return (
-      <div
-        class={classNames(displayClass, "explorer")}
-        data-behavior={opts.folderClickBehavior}
-        data-collapsed={opts.folderDefaultState}
-        data-savestate={opts.useSavedState}
-        data-data-fns={JSON.stringify({
-          order: opts.order,
-          sortFn: opts.sortFn.toString(),
-          filterFn: createFilterFn(), // Используем динамически созданную функцию
-          mapFn: opts.mapFn.toString(),
-        })}
-      >
+const Explorer: QuartzComponent = ({ cfg, displayClass, fileData }: QuartzComponentProps) => {
+  const id = `explorer-${numExplorers++}`
+  
+  const isTagPage = fileData?.slug?.startsWith("tags/")
+  const currentTag = isTagPage ? fileData.slug.split("tags/")[1]?.split("/")[0] || "" : ""
+  
+  return (
+    <div
+      class={classNames(displayClass, "explorer")}
+      data-behavior={opts.folderClickBehavior}
+      data-collapsed={opts.folderDefaultState}
+      data-savestate={opts.useSavedState}
+      data-is-tag-page={isTagPage ? "true" : "false"}
+      data-current-tag={currentTag}
+      data-data-fns={JSON.stringify({
+        order: opts.order,
+        sortFn: opts.sortFn.toString(),
+        filterFn: opts.filterFn.toString(),
+        mapFn: opts.mapFn.toString(),
+      })}
         <button
           type="button"
           class="explorer-toggle mobile-explorer hide-until-loaded"
