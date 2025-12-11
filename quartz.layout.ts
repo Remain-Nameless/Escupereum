@@ -52,7 +52,8 @@ Component.Explorer({
 }),
   ],
   right: [
-    Component.Graph(localGraph: {
+    Component.Graph({
+	localGraph: {
     drag: true, // whether to allow panning the view around
     zoom: true, // whether to allow zooming in and out
     depth: 1, // how many hops of notes to display
