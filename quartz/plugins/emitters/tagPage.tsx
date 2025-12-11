@@ -22,11 +22,11 @@ function computeTagInfo(
   content: ProcessedContent[],
   locale: keyof typeof TRANSLATIONS,
 ): [Set<string>, Record<string, ProcessedContent>] {
-  // Исключаем тег "explorerexclude" из списка тегов
+  // Исключаем тег "тишина" из списка тегов
   const tags: Set<string> = new Set(
     allFiles.flatMap((data) => data.frontmatter?.tags ?? [])
       .flatMap(getAllSegmentPrefixes)
-      .filter(tag => tag !== "explorerexclude")
+      .filter(tag => tag !== "тишина")
   )
 
   // add base tag
@@ -143,10 +143,10 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
         if (!changeEvent.file) continue
         const slug = changeEvent.file.data.slug!
 
-        // If it's a tag page itself that changed (skip explorerexclude)
+        // If it's a tag page itself that changed (skip тишина)
         if (slug.startsWith("tags/")) {
           const tag = slug.slice("tags/".length)
-          if (tag !== "explorerexclude") {
+          if (tag !== "тишина") {
             affectedTags.add(tag)
           }
         }
@@ -155,7 +155,7 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
         const fileTags = changeEvent.file.data.frontmatter?.tags ?? []
         fileTags
           .flatMap(getAllSegmentPrefixes)
-          .filter(tag => tag !== "explorerexclude")  // Исключаем тег explorerexclude
+          .filter(tag => tag !== "тишина")  // Исключаем тег тишина
           .forEach((tag) => affectedTags.add(tag))
 
         // Always update the index tag page if any file changes

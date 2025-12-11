@@ -47,16 +47,16 @@ const defaultOptions: Options = {
     }
   },
   filterFn: (node) => {
-    // Исключаем страницу тега "explorerexclude"
-    if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude"])) {
+    // Исключаем страницу тега "тишина"
+    if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "тишина"])) {
       return false
     }
     
-    // Исключаем файлы с тегом "explorerexclude"
+    // Исключаем файлы с тегом "тишина"
     if (node.file && node.file.frontmatter?.tags) {
       const tags = node.file.frontmatter.tags
-      // Проверяем, содержит ли файл тег "explorerexclude"
-      if (Array.isArray(tags) && tags.includes("explorerexclude")) {
+      // Проверяем, содержит ли файл тег "тишина"
+      if (Array.isArray(tags) && tags.includes("тишина")) {
         return false
       }
       // Также проверяем все префиксы тегов
@@ -68,7 +68,7 @@ const defaultOptions: Options = {
         }
         return prefixes
       })
-      if (tagPrefixes.includes("explorerexclude")) {
+      if (tagPrefixes.includes("тишина")) {
         return false
       }
     }
