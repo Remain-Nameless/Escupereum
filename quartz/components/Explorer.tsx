@@ -92,22 +92,25 @@ const Explorer: QuartzComponent = ({ cfg, displayClass, fileData }: QuartzCompon
   const id = `explorer-${numExplorers++}`
   
   const isTagPage = fileData?.slug?.startsWith("tags/")
-  const currentTag = isTagPage ? fileData.slug.split("tags/")[1]?.split("/")[0] || "" : ""
+  
+  // Если это страница тега, не рендерим Explorer вообще
+  if (isTagPage) {
+    return null
+  }
   
   return (
     <div
       class={classNames(displayClass, "explorer")}
-      data-behavior={opts.folderClickBehavior}
-      data-collapsed={opts.folderDefaultState}
-      data-savestate={opts.useSavedState}
-      data-is-tag-page={isTagPage ? "true" : "false"}
-      data-current-tag={currentTag}
-      data-data-fns={JSON.stringify({
-        order: opts.order,
-        sortFn: opts.sortFn.toString(),
-        filterFn: opts.filterFn.toString(),
-        mapFn: opts.mapFn.toString(),
-      })}
+        data-behavior={opts.folderClickBehavior}
+        data-collapsed={opts.folderDefaultState}
+        data-savestate={opts.useSavedState}
+        data-data-fns={JSON.stringify({
+          order: opts.order,
+          sortFn: opts.sortFn.toString(),
+          filterFn: opts.filterFn.toString(),
+          mapFn: opts.mapFn.toString(),
+        })}
+      >
         <button
           type="button"
           class="explorer-toggle mobile-explorer hide-until-loaded"
