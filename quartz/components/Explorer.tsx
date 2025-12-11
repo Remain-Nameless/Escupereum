@@ -46,7 +46,7 @@ const defaultOptions: Options = {
       return -1
     }
   },
-  filterFn: (node) => node.slugSegment !== ["tags", "explorerexclude"],
+  filterFn: (node) => JSON.stringify(node.slugSegment) !== JSON.stringify(["tags", "explorerexclude"]),
   order: ["filter", "map", "sort"],
 }
 
