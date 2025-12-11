@@ -30,7 +30,7 @@ const defaultOptions: Options = {
     return node
   },
   sortFn: (a, b) => {
-    // Sort order: folders first, then files. Sort folders and files alphabeticall
+    // Sort order: folders first, then files. Sort folders and files alphabetically
     if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
       // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
       // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
@@ -46,7 +46,35 @@ const defaultOptions: Options = {
       return -1
     }
   },
-  filterFn: (node) => JSON.stringify(node.slugSegment) !== JSON.stringify(["tags", "explorerexclude"]),
+  filterFn: (node) => {
+    // Исключаем страницу тега "explorerexclude"
+    if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude"])) {
+      return false
+    }
+    
+    // Исключаем файлы с тегом "explorerexclude"
+    if (node.file && node.file.frontmatter?.tags) {
+      const tags = node.file.frontmatter.tags
+      // Проверяем, содержит ли файл тег "explorerexclude"
+      if (Array.isArray(tags) && tags.includes("explorerexclude")) {
+        return false
+      }
+      // Также проверяем все префиксы тегов
+      const tagPrefixes = tags.flatMap(tag => {
+        const segments = tag.split("/")
+        const prefixes = []
+        for (let i = 1; i <= segments.length; i++) {
+          prefixes.push(segments.slice(0, i).join("/"))
+        }
+        return prefixes
+      })
+      if (tagPrefixes.includes("explorerexclude")) {
+        return false
+      }
+    }
+    
+    return true
+  },
   order: ["filter", "map", "sort"],
 }
 
