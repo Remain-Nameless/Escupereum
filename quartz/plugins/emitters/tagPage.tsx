@@ -123,8 +123,11 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
     },
     async *emit(ctx, content, resources) {
       const allFiles = content
-  .filter((c) => !c[0].includes("explorerexclude"))
-  .map((c) => c[1].data);
+			.filter((c) => {
+	const fileName = c[0];
+	if (typeof fileName === 'string') {
+	return !fileName.includes("hidden");
+}
       const cfg = ctx.cfg.configuration
       const [tags, tagDescriptions] = computeTagInfo(allFiles, content, cfg.locale)
 
