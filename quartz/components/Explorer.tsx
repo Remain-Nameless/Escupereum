@@ -91,7 +91,7 @@ export default ((userOpts?: Partial<Options>) => {
 const Explorer: QuartzComponent = ({ cfg, displayClass, fileData }: QuartzComponentProps) => {
   const id = `explorer-${numExplorers++}`
   
-  const isTagPage = slug?.startsWith("tags/")
+  const isTagPage = fileData?.slug?.startsWith("tags/")
   
   // Если это страница тега, не рендерим Explorer вообще
   if (isTagPage) {
