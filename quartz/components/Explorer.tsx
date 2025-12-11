@@ -22,6 +22,17 @@ export interface Options {
   order: OrderEntries[]
 }
 
+// Функция для проверки, содержит ли файл тег "explorerexclude"
+const hasExplorerExcludeTag = (node: FileTrieNode): boolean => {
+  if (node.file?.frontmatter?.tags) {
+    const tags = node.file.frontmatter.tags
+    if (Array.isArray(tags)) {
+      return tags.includes("explorerexclude")
+    }
+  }
+  return false
+}
+
 const defaultOptions: Options = {
   folderDefaultState: "collapsed",
   folderClickBehavior: "link",
@@ -47,29 +58,21 @@ const defaultOptions: Options = {
     }
   },
   filterFn: (node) => {
-    // Исключаем страницу тега "explorerexclude"
+    // Всегда исключаем саму страницу тега "explorerexclude"
     if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude"])) {
       return false
     }
     
-    // Исключаем файлы с тегом "explorerexclude"
-    if (node.file && node.file.frontmatter?.tags) {
-      const tags = node.file.frontmatter.tags
-      // Проверяем, содержит ли файл тег "explorerexclude"
-      if (Array.isArray(tags) && tags.includes("explorerexclude")) {
-        return false
-      }
-      // Также проверяем все префиксы тегов
-      const tagPrefixes = tags.flatMap(tag => {
-        const segments = tag.split("/")
-        const prefixes = []
-        for (let i = 1; i <= segments.length; i++) {
-          prefixes.push(segments.slice(0, i).join("/"))
+    // На странице тега исключаем файлы с тегом "explorerexclude"
+    // Проверяем, находимся ли мы на странице тега
+    const currentPath = window.location.pathname
+    if (currentPath.includes("/tags/")) {
+      const currentTag = currentPath.split("/tags/")[1]?.split("/")[0] || ""
+      // Если текущий тег не "explorerexclude", исключаем файлы с этим тегом
+      if (currentTag && currentTag !== "explorerexclude") {
+        if (hasExplorerExcludeTag(node)) {
+          return false
         }
-        return prefixes
-      })
-      if (tagPrefixes.includes("explorerexclude")) {
-        return false
       }
     }
     
@@ -88,8 +91,29 @@ export default ((userOpts?: Partial<Options>) => {
   const opts: Options = { ...defaultOptions, ...userOpts }
   const { OverflowList, overflowListAfterDOMLoaded } = OverflowListFactory()
 
-  const Explorer: QuartzComponent = ({ cfg, displayClass }: QuartzComponentProps) => {
+  const Explorer: QuartzComponent = ({ cfg, displayClass, fileData }: QuartzComponentProps) => {
     const id = `explorer-${numExplorers++}`
+    
+    // Проверяем, находимся ли мы на странице тега
+    const isTagPage = fileData?.slug?.startsWith("tags/")
+    const currentTag = isTagPage ? fileData.slug.split("tags/")[1] : ""
+    
+    // Создаем модифицированный filterFn для текущего контекста
+    const contextAwareFilterFn = (node: FileTrieNode) => {
+      // Всегда исключаем саму страницу тега "explorerexclude"
+      if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude"])) {
+        return false
+      }
+      
+      // Если мы на странице тега (кроме explorerexclude), исключаем файлы с тегом explorerexclude
+      if (isTagPage && currentTag && currentTag !== "explorerexclude") {
+        if (hasExplorerExcludeTag(node)) {
+          return false
+        }
+      }
+      
+      return true
+    }
 
     return (
       <div
@@ -100,7 +124,7 @@ export default ((userOpts?: Partial<Options>) => {
         data-data-fns={JSON.stringify({
           order: opts.order,
           sortFn: opts.sortFn.toString(),
-          filterFn: opts.filterFn.toString(),
+          filterFn: contextAwareFilterFn.toString(), // Используем контекстно-зависимую функцию
           mapFn: opts.mapFn.toString(),
         })}
       >
