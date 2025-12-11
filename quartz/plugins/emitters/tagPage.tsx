@@ -77,6 +77,13 @@ async function processTagPage(
   const [tree, file] = tagContent
   const cfg = ctx.cfg.configuration
   const externalResources = pageResources(pathToRoot(slug), resources)
+  
+  // Фильтруем файлы, исключая те, что имеют тег "explorerexclude"
+  const filteredFiles = allFiles.filter(fileData => {
+    const tags = fileData.frontmatter?.tags ?? []
+    return !tags.includes("explorerexclude")
+  })
+  
   const componentData: QuartzComponentProps = {
     ctx,
     fileData: file.data,
@@ -84,7 +91,7 @@ async function processTagPage(
     cfg,
     children: [],
     tree,
-    allFiles,
+    allFiles: filteredFiles, // Используем отфильтрованные файлы
   }
 
   const content = renderPage(cfg, slug, componentData, opts, externalResources)
