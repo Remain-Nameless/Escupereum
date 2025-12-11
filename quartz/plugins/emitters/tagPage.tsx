@@ -122,7 +122,9 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
       ]
     },
     async *emit(ctx, content, resources) {
-      const allFiles = content.map((c) => c[1].data)
+      const allFiles = content
+  .filter((c) => !c[0].includes("explorerexclude"))
+  .map((c) => c[1].data);
       const cfg = ctx.cfg.configuration
       const [tags, tagDescriptions] = computeTagInfo(allFiles, content, cfg.locale)
 
