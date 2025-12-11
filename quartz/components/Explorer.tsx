@@ -22,14 +22,16 @@ export interface Options {
   order: OrderEntries[]
 }
 
-// Функция для проверки, содержит ли файл тег "explorerexclude"
+// Вспомогательная функция для проверки тегов
 const hasExplorerExcludeTag = (node: FileTrieNode): boolean => {
-  if (node.file?.frontmatter?.tags) {
-    const tags = node.file.frontmatter.tags
-    if (Array.isArray(tags)) {
-      return tags.includes("explorerexclude")
-    }
+  if (!node.file?.frontmatter?.tags) return false
+  
+  const tags = node.file.frontmatter.tags
+  if (Array.isArray(tags)) {
+    return tags.includes("explorerexclude") || 
+           tags.some(tag => tag.startsWith("explorerexclude/"))
   }
+  
   return false
 }
 
@@ -59,21 +61,11 @@ const defaultOptions: Options = {
   },
   filterFn: (node) => {
     // Всегда исключаем саму страницу тега "explorerexclude"
-    if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude"])) {
-      return false
-    }
+    const isExplorerExcludePage = JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude"])
     
-    // На странице тега исключаем файлы с тегом "explorerexclude"
-    // Проверяем, находимся ли мы на странице тега
-    const currentPath = window.location.pathname
-    if (currentPath.includes("/tags/")) {
-      const currentTag = currentPath.split("/tags/")[1]?.split("/")[0] || ""
-      // Если текущий тег не "explorerexclude", исключаем файлы с этим тегом
-      if (currentTag && currentTag !== "explorerexclude") {
-        if (hasExplorerExcludeTag(node)) {
-          return false
-        }
-      }
+    // Для всех остальных узлов применяем базовую фильтрацию
+    if (isExplorerExcludePage) {
+      return false
     }
     
     return true
@@ -94,25 +86,43 @@ export default ((userOpts?: Partial<Options>) => {
   const Explorer: QuartzComponent = ({ cfg, displayClass, fileData }: QuartzComponentProps) => {
     const id = `explorer-${numExplorers++}`
     
-    // Проверяем, находимся ли мы на странице тега
+    // Определяем, находимся ли мы на странице тега (кроме explorerexclude)
     const isTagPage = fileData?.slug?.startsWith("tags/")
-    const currentTag = isTagPage ? fileData.slug.split("tags/")[1] : ""
+    const currentTag = isTagPage ? fileData.slug.split("tags/")[1]?.split("/")[0] || "" : ""
+    const isExplorerExcludeTagPage = currentTag === "explorerexclude"
     
-    // Создаем модифицированный filterFn для текущего контекста
-    const contextAwareFilterFn = (node: FileTrieNode) => {
-      // Всегда исключаем саму страницу тега "explorerexclude"
-      if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude"])) {
-        return false
+    // Создаем контекстно-зависимую функцию фильтрации
+    const createFilterFn = (): string => {
+      if (isTagPage && !isExplorerExcludeTagPage) {
+        // На странице тега (кроме explorerexclude) - фильтруем файлы с тегом explorerexclude
+        return `function(node) {
+          // Исключаем саму страницу тега "explorerexclude"
+          if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude"])) {
+            return false
+          }
+          
+          // Исключаем файлы с тегом "explorerexclude"
+          if (node.file && node.file.frontmatter && node.file.frontmatter.tags) {
+            const tags = node.file.frontmatter.tags
+            if (Array.isArray(tags)) {
+              if (tags.includes("explorerexclude")) {
+                return false
+              }
+              // Проверяем вложенные теги
+              for (const tag of tags) {
+                if (tag.startsWith("explorerexclude/")) {
+                  return false
+                }
+              }
+            }
+          }
+          
+          return true
+        }`
+      } else {
+        // На других страницах - используем стандартную фильтрацию
+        return opts.filterFn.toString()
       }
-      
-      // Если мы на странице тега (кроме explorerexclude), исключаем файлы с тегом explorerexclude
-      if (isTagPage && currentTag && currentTag !== "explorerexclude") {
-        if (hasExplorerExcludeTag(node)) {
-          return false
-        }
-      }
-      
-      return true
     }
 
     return (
@@ -124,7 +134,7 @@ export default ((userOpts?: Partial<Options>) => {
         data-data-fns={JSON.stringify({
           order: opts.order,
           sortFn: opts.sortFn.toString(),
-          filterFn: contextAwareFilterFn.toString(), // Используем контекстно-зависимую функцию
+          filterFn: createFilterFn(), // Используем динамически созданную функцию
           mapFn: opts.mapFn.toString(),
         })}
       >

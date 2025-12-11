@@ -78,20 +78,24 @@ async function processTagPage(
   const cfg = ctx.cfg.configuration
   const externalResources = pageResources(pathToRoot(slug), resources)
   
-  // Фильтруем файлы, исключая те, что имеют тег "explorerexclude"
-  const filteredFiles = allFiles.filter(fileData => {
-    const tags = fileData.frontmatter?.tags ?? []
-    return !tags.includes("explorerexclude")
-  })
+  // Создаем отфильтрованный список файлов для этой страницы тега
+  // Если это не тег "explorerexclude", исключаем файлы с этим тегом
+  const filteredFiles = tag === "explorerexclude" 
+    ? allFiles 
+    : allFiles.filter(fileData => {
+        const tags = fileData.frontmatter?.tags ?? []
+        return !tags.includes("explorerexclude") && 
+               !tags.some((t: string) => t.startsWith("explorerexclude/"))
+      })
   
   const componentData: QuartzComponentProps = {
     ctx,
-    fileData: file.data,
+    fileData: { ...file.data, isTagPage: true, currentTag: tag },
     externalResources,
     cfg,
     children: [],
     tree,
-    allFiles: filteredFiles, // Используем отфильтрованные файлы
+    allFiles: filteredFiles,
   }
 
   const content = renderPage(cfg, slug, componentData, opts, externalResources)
