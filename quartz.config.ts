@@ -24,7 +24,7 @@ const config: QuartzConfig = {
       cdnCaching: true,
       typography: {
 		title: "Poiret One",
-        header: "Cormorant SC",
+        header: "Cormorant SC bold",
         body: "Jost",
         code: "Roboto",
 		fontSize: 1.6,
