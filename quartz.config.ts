@@ -23,11 +23,10 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-		title: "Poiret One",
-        header: "Cormorant SC bold",
+		title: "Spectral SC",
+        header: "Montserrat Alternates",
         body: "Jost",
         code: "Roboto",
-		fontSize: 1.6,
       },
       colors: {
        lightMode: {
