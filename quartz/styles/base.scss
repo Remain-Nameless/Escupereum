@@ -633,41 +633,33 @@ iframe.pdf {
   z-index: 9999;
 }
 
+/* Gallery Container */
+
 .gallery {
-  --size: 100px;
-  display: grid;
-  grid-template-columns: repeat(6, var(--size));
-  grid-auto-rows: var(--size);
-  margin-bottom: var(--size);
-  place-items: start center;
-  gap: 5px;
-  
-  &:has(:hover) img:not(:hover),
-  &:has(:focus) img:not(:focus){
-    filter: brightness(0.5) contrast(0.5);
-  }
-
-  & img {
-    object-fit: cover;
-    width: calc(var(--size) * 3);
-    height: calc(var(--size) * 3);
-    transition: clip-path 0.25s, filter 0.75s;
-    grid-column: auto / span 2;
-    border-radius: 5px;
-
-    &:nth-child(5n - 1) { 
-      grid-column: 2 / span 2 
-    }
-
-    &:hover,
-    &:focus {
-      z-index: 1;
-      transition: clip-path 0.25s, filter 0.25s;
-    }
-    
-    &:focus {
-      outline: 1px dashed black;
-      outline-offset: -5px;
-    }
-  }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    max-width: 900px;
+    margin: auto;
 }
+
+/* Gallery Items */
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
