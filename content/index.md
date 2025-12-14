@@ -21,11 +21,34 @@ title: ✦
 >[!info] Совет
 >Иногда молчание может сказать больше, чем слова. </br><p style = "color: transparent">Временами скрытое бывает куда важнее, чем явное.</p></br>Порой таинственные зазоры между предметами значат больше, чем сами предметы.
 
-<section class="gallery">
-  <img src="Энодиум.jpg">
-  <img src="Бездна4.png">
-  <img src="Мир.png">
+<div class="album">
+  <div class="responsive-container-block bg">
+  <div class="responsive-container-block img-cont">
+  <img class="img" src="Энодиум.jpg">
+  <img class="img" src="Бездна4.png">
+  <img class="img img-last" src="Мир.png">
   <img src="Статуя короля Артура.png">
   <img src="Античная архитектура1.png">
   <img src="Обложка.png">
-</section>
+</div>
+</div>
+</div>
+
+<div class="album">
+  <div class="responsive-container-block bg">
+    <div class="responsive-container-block img-cont">
+      <img class="img" src="Энодиум.jpg">
+      <img class="img" src="Бездна4.png">
+      <img class="img img-last" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.6.svg">
+    </div>
+    <div class="responsive-container-block img-cont">
+      <img class="img img-big" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.11.svg">
+      <img class="img img-big img-last" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.10.svg">
+    </div>
+    <div class="responsive-container-block img-cont">
+      <img class="img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.7.svg">
+      <img class="img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.8.svg">
+      <img class="img" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/PP5.9.svg">
+    </div>
+  </div>
+</div>
