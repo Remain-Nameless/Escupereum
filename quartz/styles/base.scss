@@ -635,17 +635,17 @@ iframe.pdf {
 
 .gallery {
   display: grid;
-  grid-template-columns: minmax(max-content, 300px) minmax(200px, 1fr) 150px;
+  grid-template-columns: minmax(15em, 1fr) minmax(200px, 1fr) 150px;
   grid-gap: 5px;
   box-sizing: border-box;
   height: 200px;
-  width: 100%;
+  width: 80%;
   background: transparent;
   padding: 10px;
 }
 
 .gallery img {
-  width: 100%;
+  width: 50%;
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 0.5em;
