@@ -27,5 +27,5 @@ title: ✦
   <img src="Мир.png">
   <img src="Статуя короля Артура.png">
   <img src="Античная архитектура1.png">
-  <img src="обложка.png">
+  <img src="Обложка.png">
 </section>

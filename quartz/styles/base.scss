@@ -635,10 +635,10 @@ iframe.pdf {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(30em, 1fr));
   gap: 1em;
   padding: 1em;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   background: transparent;
 }
@@ -653,5 +653,5 @@ iframe.pdf {
 }
 
 .gallery img:hover {
-  transform: scale(1.05);
+  transform: scale(2.05);
 }
