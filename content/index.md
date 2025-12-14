@@ -22,19 +22,10 @@ title: ✦
 >Иногда молчание может сказать больше, чем слова. </br><p style = "color: transparent">Временами скрытое бывает куда важнее, чем явное.</p></br>Порой таинственные зазоры между предметами значат больше, чем сами предметы.
 
 <section class="gallery">
-  <img src="https://picsum.photos/500">
-  <img src="https://picsum.photos/520/480">
-  <img src="https://picsum.photos/480/520">
-  <img src="https://picsum.photos/540/460">
-  <img src="https://picsum.photos/460/540">
-  <img src="https://picsum.photos/500">
-  <img src="https://picsum.photos/520/480">
-  <img src="https://picsum.photos/480/520">
-  <img src="https://picsum.photos/540/460">
-  <img src="https://picsum.photos/460/540">
-  <img src="https://picsum.photos/500">
-  <img src="https://picsum.photos/520/480">
-  <img src="https://picsum.photos/480/520">
-  <img src="https://picsum.photos/540/460">
-  <img src="https://picsum.photos/460/540">
+  <img src="Энодиум.jpg">
+  <img src="Бездна4.png">
+  <img src="Мир.png">
+  <img src="Статуя короля Артура.png">
+  <img src="Античная архитектура1.png">
+  <img src="обложка.png">
 </section>
