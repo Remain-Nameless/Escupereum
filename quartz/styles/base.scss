@@ -636,11 +636,12 @@ iframe.pdf {
 .gallery {
   display: grid;
   grid-template-columns: minmax(max-content, 300px) minmax(200px, 1fr) 150px;
-  gap: 1em;
-  padding: 1em;
+  grid-gap: 5px;
+  box-sizing: border-box;
+  height: 200px;
   width: 100%;
-  margin: 0 auto;
   background: transparent;
+  padding: 10px;
 }
 
 .gallery img {
