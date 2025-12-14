@@ -635,7 +635,7 @@ iframe.pdf {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30em, 1fr));
+  grid-template-columns: minmax(max-content, 300px) minmax(200px, 1fr) 150px;
   gap: 1em;
   padding: 1em;
   width: 100%;
