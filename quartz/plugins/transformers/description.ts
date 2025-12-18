@@ -7,18 +7,41 @@ export interface Options {
   descriptionLength: number
   maxDescriptionLength: number
   replaceExternalLinks: boolean
+  excludeTags: string[] // Новая опция для исключения тегов
 }
 
 const defaultOptions: Options = {
   descriptionLength: 150,
   maxDescriptionLength: 300,
   replaceExternalLinks: true,
+  excludeTags: ["explorerexclude"], // Добавляем тег по умолчанию
 }
 
 const urlRegex = new RegExp(
   /(https?:\/\/)?(?<domain>([\da-z\.-]+)\.([a-z\.]{2,6})(:\d+)?)(?<path>[\/\w\.-]*)(\?[\/\w\.=&;-]*)?/,
   "g",
 )
+
+// Функция для удаления тегов из текста
+const removeExcludedTags = (text: string, excludeTags: string[]): string => {
+  if (!excludeTags || excludeTags.length === 0) return text
+  
+  let cleanedText = text
+  for (const tag of excludeTags) {
+    // Удаляем тег в разных форматах: #explorerexclude, explorerexclude
+    const tagRegex = new RegExp(`#?${tag}\\b`, "gi")
+    cleanedText = cleanedText.replace(tagRegex, "")
+    
+    // Также удаляем подтеги: #explorerexclude/subtag
+    const subtagRegex = new RegExp(`#?${tag}/[\\w-]+\\b`, "gi")
+    cleanedText = cleanedText.replace(subtagRegex, "")
+  }
+  
+  // Убираем лишние пробелы, которые могли образоваться после удаления тегов
+  cleanedText = cleanedText.replace(/\s+/g, " ").trim()
+  
+  return cleanedText
+}
 
 export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts }
@@ -30,6 +53,14 @@ export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
           return async (tree: HTMLRoot, file) => {
             let frontMatterDescription = file.data.frontmatter?.description
             let text = escapeHTML(toString(tree))
+
+            // УДАЛЯЕМ ТЕГИ: Применяем фильтрацию к тексту
+            if (opts.excludeTags && opts.excludeTags.length > 0) {
+              text = removeExcludedTags(text, opts.excludeTags)
+              if (frontMatterDescription) {
+                frontMatterDescription = removeExcludedTags(frontMatterDescription, opts.excludeTags)
+              }
+            }
 
             if (opts.replaceExternalLinks) {
               frontMatterDescription = frontMatterDescription?.replace(
