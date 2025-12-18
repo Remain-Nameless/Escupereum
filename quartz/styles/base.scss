@@ -644,6 +644,7 @@ div.gallery-item {
   border: 1px solid #ccc;
   width: auto;
   height: auto;
+  object-fit: cover;
 }
 
 div.gallery-item:hover {
@@ -653,7 +654,7 @@ div.gallery-item:hover {
 div.gallery-item img {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 div.gallery-item div.desc {
