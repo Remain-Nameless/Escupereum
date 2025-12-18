@@ -27,6 +27,7 @@ const config: QuartzConfig = {
         header: "Montserrat Alternates",
         body: "Jost",
         code: "Roboto",
+		textAlign: "justify",
       },
       colors: {
        lightMode: {
