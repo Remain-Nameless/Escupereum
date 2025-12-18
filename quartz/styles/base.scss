@@ -641,13 +641,12 @@ div.gallery {
 
 div.gallery-item {
   margin: 0px;
-  border: 2px solid #ccc;
-  width: 200px;
+  width: auto;
   height: 200px;
 }
 
 div.gallery-item:hover {
-  border: 1px solid #777;
+  height: 400px;
 }
 
 div.gallery-item img {
