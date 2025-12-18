@@ -637,6 +637,7 @@ div.gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  object-fit: cover;
 }
 
 div.gallery-item {
@@ -649,8 +650,6 @@ div.gallery-item:hover {
 }
 
 div.gallery-item img {
-  width: 100%;
-  height: auto;
   object-fit: cover;
 }
 
