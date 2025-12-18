@@ -95,12 +95,24 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       v,
     ]),
   )
+  
+  // ФИЛЬТРАЦИЯ: Для глобального графа (depth = -1) исключаем файлы с тегом "explorerexclude"
+  const filteredData = new Map(data)
+  if (depth === -1) { // Это глобальный граф
+    for (const [slug, details] of data.entries()) {
+      // Исключаем файлы с тегом "explorerexclude"
+      if (details.tags && details.tags.includes("explorerexclude")) {
+        filteredData.delete(slug)
+      }
+    }
+  }
+
   const links: SimpleLinkData[] = []
   const tags: SimpleSlug[] = []
-  const validLinks = new Set(data.keys())
+  const validLinks = new Set(filteredData.keys()) // Используем отфильтрованные данные
 
   const tweens = new Map<string, TweenNode>()
-  for (const [source, details] of data.entries()) {
+  for (const [source, details] of filteredData.entries()) { // Используем отфильтрованные данные
     const outgoing = details.links ?? []
 
     for (const dest of outgoing) {
@@ -139,18 +151,25 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       }
     }
   } else {
+    // Для глобального графа используем только отфильтрованные данные
     validLinks.forEach((id) => neighbourhood.add(id))
     if (showTags) tags.forEach((tag) => neighbourhood.add(tag))
   }
 
+   // Создаем узлы, используя отфильтрованные данные для получения заголовков и тегов
   const nodes = [...neighbourhood].map((url) => {
-    const text = url.startsWith("tags/") ? "#" + url.substring(5) : (data.get(url)?.title ?? url)
+    // Для тегов используем специальный формат, для обычных файлов - данные из filteredData
+    const text = url.startsWith("tags/") 
+      ? "#" + url.substring(5) 
+      : (filteredData.get(url)?.title ?? url)
+    
     return {
       id: url,
       text,
-      tags: data.get(url)?.tags ?? [],
+      tags: url.startsWith("tags/") ? [] : (filteredData.get(url)?.tags ?? []),
     }
   })
+  
   const graphData: { nodes: NodeData[]; links: LinkData[] } = {
     nodes,
     links: links
@@ -160,6 +179,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
         target: nodes.find((n) => n.id === l.target)!,
       })),
   }
+
 
   const width = graph.offsetWidth
   const height = Math.max(graph.offsetHeight, 250)
