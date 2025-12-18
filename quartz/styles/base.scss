@@ -637,11 +637,12 @@ div.gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  object-fit: cover;
 }
 
 div.gallery-item {
-  margin: 5px;
-  border: 0px solid #ccc;
+  margin: 0px;
+  border: 2px solid #ccc;
   width: 200px;
   height: 200px;
   object-fit: cover;
@@ -657,6 +658,6 @@ div.gallery-item img {
 }
 
 div.gallery-item div.desc {
-  padding: 15px;
+  padding: 0px;
   text-align: center;
   }
