@@ -7,15 +7,26 @@ import { i18n } from "../i18n"
 
 export interface SearchOptions {
   enablePreview: boolean
+  excludeTags: string[] // Новая опция для исключения тегов
 }
 
 const defaultOptions: SearchOptions = {
   enablePreview: true,
+  excludeTags: ["explorerexclude"], // Добавляем тег по умолчанию
 }
 
 export default ((userOpts?: Partial<SearchOptions>) => {
+  const opts = { ...defaultOptions, ...userOpts }
+  
+  // Добавляем скрипт для передачи опций фильтрации
+  const searchScript = `
+    (function() {
+      window.QUARTZ_SEARCH_OPTS = ${JSON.stringify({ excludeTags: opts.excludeTags })};
+    })();
+    ${script}
+  `
+
   const Search: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
-    const opts = { ...defaultOptions, ...userOpts }
     const searchPlaceholder = i18n(cfg.locale).components.search.searchBarPlaceholder
     return (
       <div class={classNames(displayClass, "search")}>
@@ -46,7 +57,7 @@ export default ((userOpts?: Partial<SearchOptions>) => {
     )
   }
 
-  Search.afterDOMLoaded = script
+  Search.afterDOMLoaded = searchScript
   Search.css = style
 
   return Search

@@ -188,20 +188,16 @@ function highlightHTML(searchTerm: string, el: HTMLElement) {
 }
 
 async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: ContentIndex) {
-  // Жестко закодированная фильтрация
-  const excludeTags = ["explorerexclude"]
+  // ФИЛЬТРАЦИЯ: Создаем отфильтрованную копию данных без документов, содержащих тег "explorerexclude"
   const filteredData: ContentIndex = {}
   for (const [slug, details] of Object.entries(data)) {
+    // Исключаем документы с тегом "explorerexclude"
     const tags = details.tags || []
-    const shouldExclude = tags.some(tag => 
-      excludeTags.some(excludeTag => 
-        tag === excludeTag || tag.startsWith(excludeTag + "/")
-      )
-    )
-    if (!shouldExclude) {
+    if (!tags.includes("explorerexclude") && !tags.some((tag: string) => tag.startsWith("explorerexclude/"))) {
       filteredData[slug] = details
     }
   }
+
   const container = searchElement.querySelector(".search-container") as HTMLElement
   if (!container) return
 
@@ -216,7 +212,8 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   const searchLayout = searchElement.querySelector(".search-layout") as HTMLElement
   if (!searchLayout) return
 
-  const idDataMap = Object.keys(data) as FullSlug[]
+  // Используем отфильтрованные данные для построения idDataMap
+  const idDataMap = Object.keys(filteredData) as FullSlug[]
   const appendLayout = (el: HTMLElement) => {
     searchLayout.appendChild(el)
   }
@@ -323,12 +320,14 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
 
   const formatForDisplay = (term: string, id: number) => {
     const slug = idDataMap[id]
+    // Используем отфильтрованные данные
+    const itemData = filteredData[slug]
     return {
       id,
       slug,
-      title: searchType === "tags" ? data[slug].title : highlight(term, data[slug].title ?? ""),
-      content: highlight(term, data[slug].content ?? "", true),
-      tags: highlightTags(term.substring(1), data[slug].tags),
+      title: searchType === "tags" ? itemData.title : highlight(term, itemData.title ?? ""),
+      content: highlight(term, itemData.content ?? "", true),
+      tags: highlightTags(term.substring(1), itemData.tags),
     }
   }
 
@@ -515,12 +514,12 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   window.addCleanup(() => searchBar.removeEventListener("input", onType))
 
   registerEscapeHandler(container, hideSearch)
-  await fillDocument(data)
+  // Передаем отфильтрованные данные в fillDocument
+  await fillDocument(filteredData)
 }
 
 /**
  * Fills flexsearch document with data
- * @param index index to fill
  * @param data data to fill index with
  */
 let indexPopulated = false
