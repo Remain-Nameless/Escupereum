@@ -188,6 +188,20 @@ function highlightHTML(searchTerm: string, el: HTMLElement) {
 }
 
 async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: ContentIndex) {
+  // Жестко закодированная фильтрация
+  const excludeTags = ["explorerexclude"]
+  const filteredData: ContentIndex = {}
+  for (const [slug, details] of Object.entries(data)) {
+    const tags = details.tags || []
+    const shouldExclude = tags.some(tag => 
+      excludeTags.some(excludeTag => 
+        tag === excludeTag || tag.startsWith(excludeTag + "/")
+      )
+    )
+    if (!shouldExclude) {
+      filteredData[slug] = details
+    }
+  }
   const container = searchElement.querySelector(".search-container") as HTMLElement
   if (!container) return
 
