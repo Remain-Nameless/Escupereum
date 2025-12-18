@@ -10,13 +10,11 @@ import { i18n } from "../../i18n"
 export interface Options {
   delimiters: string | [string, string]
   language: "yaml" | "toml"
-  excludeTags: string[] // Новая опция для исключения тегов
 }
 
 const defaultOptions: Options = {
   delimiters: "---",
   language: "yaml",
-  excludeTags: ["explorerexclude"], // Добавляем тег по умолчанию
 }
 
 function coalesceAliases(data: { [key: string]: any }, aliases: string[]) {
@@ -54,21 +52,6 @@ function getAliasSlugs(aliases: string[]): FullSlug[] {
   return res
 }
 
-// Функция для фильтрации исключаемых тегов
-function filterExcludedTags(tags: string[], excludeTags: string[]): string[] {
-  if (!excludeTags || excludeTags.length === 0) return tags
-  
-  return tags.filter(tag => {
-    const sluggedTag = slugTag(tag)
-    // Проверяем, не является ли тег исключаемым
-    return !excludeTags.some(excludeTag => {
-      const sluggedExcludeTag = slugTag(excludeTag)
-      // Проверяем точное совпадение или начало с исключаемого тега (для подтегов)
-      return sluggedTag === sluggedExcludeTag || sluggedTag.startsWith(sluggedExcludeTag + "/")
-    })
-  })
-}
-
 export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts }
   return {
@@ -95,16 +78,7 @@ export const FrontMatter: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
             }
 
             const tags = coerceToArray(coalesceAliases(data, ["tags", "tag"]))
-            if (tags) {
-              // Применяем фильтрацию тегов перед slugify
-              const filteredTags = filterExcludedTags(tags, opts.excludeTags || [])
-              if (filteredTags.length > 0) {
-                data.tags = [...new Set(filteredTags.map((tag: string) => slugTag(tag)))]
-              } else {
-                // Если все теги отфильтрованы, удаляем поле tags
-                delete data.tags
-              }
-            }
+            if (tags) data.tags = [...new Set(tags.map((tag: string) => slugTag(tag)))]
 
             const aliases = coerceToArray(coalesceAliases(data, ["aliases", "alias"]))
             if (aliases) {
