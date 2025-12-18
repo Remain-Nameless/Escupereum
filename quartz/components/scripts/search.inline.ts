@@ -188,12 +188,17 @@ function highlightHTML(searchTerm: string, el: HTMLElement) {
 }
 
 async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: ContentIndex) {
-  // ФИЛЬТРАЦИЯ: Создаем отфильтрованную копию данных без документов, содержащих тег "explorerexclude"
+  // Жестко закодированная фильтрация
+  const excludeTags = ["explorerexclude"]
   const filteredData: ContentIndex = {}
   for (const [slug, details] of Object.entries(data)) {
-    // Исключаем документы с тегом "explorerexclude"
     const tags = details.tags || []
-    if (!tags.includes("explorerexclude") && !tags.some((tag: string) => tag.startsWith("explorerexclude/"))) {
+    const shouldExclude = tags.some(tag => 
+      excludeTags.some(excludeTag => 
+        tag === excludeTag || tag.startsWith(excludeTag + "/")
+      )
+    )
+    if (!shouldExclude) {
       filteredData[slug] = details
     }
   }
