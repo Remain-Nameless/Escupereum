@@ -56,7 +56,7 @@ const defaultOptions: Options = {
     if (node.file && node.file.frontmatter?.tags) {
       const tags = node.file.frontmatter.tags
       // Проверяем, содержит ли файл тег "explorerexclude"
-      if (Array.isArray(tags) && tags.includes("explorerexclude")) {
+      if (Array.isArray(tags) && tags.includes("explorerexclude", "глоссарий")) {
         return false
       }
       // Также проверяем все префиксы тегов
@@ -68,7 +68,7 @@ const defaultOptions: Options = {
         }
         return prefixes
       })
-      if (tagPrefixes.includes("explorerexclude")) {
+      if (tagPrefixes.includes("explorerexclude", "глоссарий")) {
         return false
       }
     }

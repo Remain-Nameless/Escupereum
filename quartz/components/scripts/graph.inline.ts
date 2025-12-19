@@ -101,7 +101,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   if (depth === -1) { // Это глобальный граф
     for (const [slug, details] of data.entries()) {
       // Исключаем файлы с тегом "explorerexclude"
-      if (details.tags && details.tags.includes("explorerexclude")) {
+      if (details.tags && details.tags.includes("explorerexclude", "глоссарий")) {
         filteredData.delete(slug)
       }
     }

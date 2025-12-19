@@ -45,7 +45,7 @@ Component.Explorer({
   // omitted but shown later
   filterFn: (node) => {
     // exclude files with the tag "explorerexclude"
-    return node.data?.tags?.includes("explorerexclude") !== true
+    return node.data?.tags?.includes("explorerexclude", "глоссарий") !== true
   },
   // what order to apply functions in
   order: ["filter", "map", "sort"],
