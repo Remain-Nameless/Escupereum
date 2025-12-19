@@ -48,7 +48,7 @@ const defaultOptions: Options = {
   },
   filterFn: (node) => {
     // Исключаем страницу тега "explorerexclude"
-    if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude"])) {
+    if (JSON.stringify(node.slugSegment) === JSON.stringify(["tags", "explorerexclude", "глоссарий"])) {
       return false
     }
     

@@ -75,7 +75,7 @@ const config: QuartzConfig = {
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description({
-		excludeTags: ["explorerexclude", "other-hidden-tag"]
+		excludeTags: ["explorerexclude", "глоссарий"]
 		}),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
