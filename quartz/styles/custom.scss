@@ -1,3 +1,12 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+/* В файл custom.scss или через встроенный стиль */
+.tag-link[href*="explorerexclude"] {
+  display: none !important;
+}
+
+/* Или скрыть весь li с таким тегом */
+.tags li:has(a[href*="explorerexclude"]) {
+  display: none !important;
+}
