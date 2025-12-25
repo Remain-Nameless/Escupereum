@@ -11,8 +11,9 @@
   display: none !important;
 }
 
-/* The actual timeline (the vertical ruler) */
 .timeline {
+/* The actual timeline (the vertical ruler) */
+.timeline-body {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
@@ -134,4 +135,5 @@
   .right {
     left: 0%;
   }
+}
 }
