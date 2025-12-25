@@ -20,3 +20,5 @@ title: ✦
 
 >[!info] Совет
 >Иногда молчание может сказать больше, чем слова. </br><p style = "color: transparent">Временами скрытое бывает куда важнее, чем явное.</p></br>Порой таинственные зазоры между предметами значат больше, чем сами предметы.
+
+<p style = "color: transparent"> Подробнее: <a href="https://remain-nameless.github.io/Escupereum/%D0%A1%D1%83%D1%81%D0%BB%D0%B8%D0%BA" style="color: transparent">Суслик</a></p>
