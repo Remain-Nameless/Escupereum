@@ -10,25 +10,3 @@
 .tags li:has(a[href*="explorerexclude"]) {
   display: none !important;
 }
-
-body.tag-explorerexclude {
-  background-color: black !important;
-  color: #702f2f !important;
-  font-family: "Anonymous Pro", monospace !important;
-}
-
-// Если вы хотите изменить только основной текст, не заголовки:
-body.tag-explorerexclude .page-content {
-  color: #702f2f !important;
-  font-family: "Anonymous Pro", monospace !important;
-}
-
-// Изменение фона всей страницы
-body.tag-explorerexclude {
-  background-color: black !important;
-}
-
-// Убедитесь, что все элементы наследуют цвет текста
-body.tag-explorerexclude * {
-  color: #702f2f !important;
-}
