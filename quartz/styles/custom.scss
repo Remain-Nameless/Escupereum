@@ -34,6 +34,33 @@ pre:has(>code.mermaid) {
     }
 }
 
+@media (max-width: variables.$mobileBreakpoint) {
+    .title-logo {
+        flex-direction: row;
+        align-items: center;
+        img {
+            width: 75px;
+        }
+    }
+    #header-text {
+        overflow-wrap: unset;
+    }
+}
+
+// Tablet styles
+@media (min-width: variables.$mobileBreakpoint) and (max-width: calc(variables.$desktopBreakpoint - 1px)) {
+    .title-logo {
+        flex-direction: row;
+        align-items: center;
+        img {
+            width: 75px;
+        }
+    }
+    #header-text {
+        overflow-wrap: unset;
+    }
+}
+
 #icon-header {
     margin: 0;
     transition: transform 0.2s ease;

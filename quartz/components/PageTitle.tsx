@@ -12,7 +12,7 @@ const PageTitle: QuartzComponent = (props: QuartzComponentProps) => {
       <h1 class={classNames(displayClass, "page-title")}>
         <div class="title-logo">
           <a href={baseDir}>
-            <img id="icon-header" src={"https://blog.eledah.ir/static/icon.png"} alt="" />
+            <img id="icon-header" src={"https://remain-nameless.github.io/Escupereum/quartz/static/icon.png"} alt="" />
           </a>
           <a href={baseDir} class={displayClass} id="header-text">
             {title}
