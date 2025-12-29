@@ -34,7 +34,6 @@ pre:has(>code.mermaid) {
     }
 }
 
-@media (max-width: variables.$breakpoints mobile) {
     .title-logo {
         flex-direction: row;
         align-items: center;
@@ -45,21 +44,6 @@ pre:has(>code.mermaid) {
     #header-text {
         overflow-wrap: unset;
     }
-}
-
-// Tablet styles
-@media (min-width: variables.$breakpoints mobile) and (max-width: calc(variables.$breakpoints desktop - 1px)) {
-    .title-logo {
-        flex-direction: row;
-        align-items: center;
-        img {
-            width: 75px;
-        }
-    }
-    #header-text {
-        overflow-wrap: unset;
-    }
-}
 
 #icon-header {
     margin: 0;
