@@ -37,49 +37,11 @@ pre:has(>code.mermaid) {
         overflow-wrap: unset;
     }
 
-@media (max-width: variables.$mobile-Breakpoint) {
-    .title-logo {
-        flex-direction: row;
-        align-items: center;
-        img {
-            width: 75px;
-        }
-    }
-    #header-text {
-        overflow-wrap: unset;
-    }
-}
-
-// Tablet styles
-@media (min-width: variables.$mobile-Breakpoint) and (max-width: calc(variables.$desktop-Breakpoint - 1px)) {
-    .title-logo {
-        flex-direction: row;
-        align-items: center;
-        img {
-            width: 75px;
-        }
-    }
-    #header-text {
-        overflow-wrap: unset;
-    }
-}
-
-#icon-header {
+.icon-header {
     margin: 0;
     transition: transform 0.2s ease;
     
     &:hover {
         transform: scale(1.05);
-    }
-}
-
-// top margin
-
-@media (min-width: variables.$desktop-Breakpoint) {
-    .page-header {
-        margin: 0rem auto 0 !important;
-    }
-    .page > #quartz-body .sidebar {
-        margin-top: 7rem !important;
     }
 }
