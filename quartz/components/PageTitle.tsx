@@ -40,7 +40,7 @@ PageTitle.css = `
 .title-logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 `
 export default (() => PageTitle) satisfies QuartzComponentConstructor
