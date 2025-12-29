@@ -1,5 +1,6 @@
 ---
-hide_title: "true"
+title: ✦
+
 ---
 <center><h1> Добро пожаловать!</h1></center>
 

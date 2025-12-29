@@ -9,15 +9,15 @@ const PageTitle: QuartzComponent = (props: QuartzComponentProps) => {
   const baseDir = pathToRoot(fileData.slug!)
   return (
     <div class="page-title-container">
-      <h1 class={classNames(displayClass, "page-title")}>
-        <div class="title-logo">
+	      <div class="title-logo">
           <a href={baseDir}>
             <img id="icon-header" src={"https://remain-nameless.github.io/static/icon-header.png"} alt="" />
           </a>
+		  </div>
+      <h1 class={classNames(displayClass, "page-title")}>
           <a href={baseDir} class={displayClass} id="header-text">
             {title}
           </a>
-        </div>
       </h1>
     </div>
   )
