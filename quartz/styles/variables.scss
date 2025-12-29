@@ -7,9 +7,11 @@
  * Screen width between $mobile and $desktop width will use the tablet layout.
  * assuming mobile < desktop
  */
-$mobileBreakpoint: 600px;
-$tabletBreakpoint: 1000px;
-$desktopBreakpoint: 1360px;
+$breakpoints: (
+  mobile: 600px,
+  tablet: 1000px,
+  desktop: 1200px,
+);
 
 $mobile: "(max-width: #{map.get($breakpoints, mobile)})";
 $tablet: "(min-width: #{map.get($breakpoints, mobile)}) and (max-width: #{map.get($breakpoints, desktop)})";

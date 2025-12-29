@@ -34,7 +34,7 @@ pre:has(>code.mermaid) {
     }
 }
 
-@media (max-width: variables.$mobileBreakpoint) {
+@media (max-width: variables.$breakpoints.mobile) {
     .title-logo {
         flex-direction: row;
         align-items: center;
@@ -48,7 +48,7 @@ pre:has(>code.mermaid) {
 }
 
 // Tablet styles
-@media (min-width: variables.$mobileBreakpoint) and (max-width: calc(variables.$desktopBreakpoint - 1px)) {
+@media (min-width: variables.$breakpoints.mobile) and (max-width: calc(variables.$breakpoints.desktop - 1px)) {
     .title-logo {
         flex-direction: row;
         align-items: center;
