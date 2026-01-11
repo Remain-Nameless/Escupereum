@@ -6,7 +6,6 @@ import ArticleTitle from "./ArticleTitle"
 import Darkmode from "./Darkmode"
 import ReaderMode from "./ReaderMode"
 import Head from "./Head"
-import Header from "./LinksHeader"
 import PageTitle from "./PageTitle"
 import ContentMeta from "./ContentMeta"
 import Spacer from "./Spacer"
@@ -22,6 +21,7 @@ import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
+import LinksHeader from "./LinksHeader"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 
@@ -33,7 +33,6 @@ export {
   Darkmode,
   ReaderMode,
   Head,
-  Header,
   PageTitle,
   ContentMeta,
   Spacer,
@@ -49,6 +48,7 @@ export {
   RecentNotes,
   NotFound,
   Breadcrumbs,
+  LinksHeader,
   Comments,
   Flex,
   ConditionalRender,
