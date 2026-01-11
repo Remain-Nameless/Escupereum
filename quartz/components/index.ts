@@ -6,7 +6,7 @@ import ArticleTitle from "./ArticleTitle"
 import Darkmode from "./Darkmode"
 import ReaderMode from "./ReaderMode"
 import Head from "./Head"
-import LinksHeader from "./LinksHeader"
+import Header from "./LinksHeader"
 import PageTitle from "./PageTitle"
 import ContentMeta from "./ContentMeta"
 import Spacer from "./Spacer"
@@ -33,7 +33,7 @@ export {
   Darkmode,
   ReaderMode,
   Head,
-  LinksHeader,
+  Header,
   PageTitle,
   ContentMeta,
   Spacer,
