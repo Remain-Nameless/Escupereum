@@ -27,17 +27,3 @@ header {
     color: var(--dark);
   }
 }
-
-@media (max-width: $mobileBreakpoint) {
-  #links-header > * {
-    width: calc(33.33% - 0.67em); /* 33.33% width with some gap */
-  }
-
-  #links-header > *:nth-child(3n-1) {
-    text-align: center;
-  }
-
-  #links-header > *:nth-child(3n) {
-    text-align: right;
-  }
-}
