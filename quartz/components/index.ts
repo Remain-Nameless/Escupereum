@@ -33,7 +33,7 @@ export {
   Darkmode,
   ReaderMode,
   Head,
-  Header,
+  LinksHeader,
   PageTitle,
   ContentMeta,
   Spacer,
