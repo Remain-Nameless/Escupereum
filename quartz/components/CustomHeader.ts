@@ -3,19 +3,19 @@ export default (() => {
   function CustomHeader() {
     return (
 	        {/* Mobile navigation */}
-        <div className="topnav" id="myTopnav">
+        <div class="topnav" id="myTopnav">
           <div id="myLinks">
             <a href="https://remain-nameless.github.io/Escupereum/">О проекте</a>
             <a href="https://remain-nameless.github.io/Escupereum/Эскуперей">Вселенная</a>
           </div>
 
           <a href="javascript:void(0);" className="icon" id="icon">
-            <div className="mobilemenu"></div>
+            <div class="mobilemenu"></div>
           </a>
         </div>
 
         {/* Desktop navigation */}
-        <nav className="navbar">
+        <nav class="navbar">
             <a href="https://remain-nameless.github.io/Escupereum/">О проекте</a>
             <a href="https://remain-nameless.github.io/Escupereum/Эскуперей">Вселенная</a>
         </nav>
