@@ -1,0 +1,8 @@
+views:
+  - type: table
+    name: Таблица
+    filters:
+      and:
+        - file.hasLink(this.file.name)
+    order:
+      - file.name

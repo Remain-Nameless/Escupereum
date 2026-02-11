@@ -1,0 +1,16 @@
+{
+	"nodes":[
+		{"id":"5f6b5e472783d961","type":"text","text":"Винсент (холерик)","x":-520,"y":-260,"width":250,"height":60},
+		{"id":"996e180985899951","type":"text","text":"Эдгар (сангвиник)","x":-506,"y":-80,"width":250,"height":60},
+		{"id":"e45e65f79e9c7ee4","type":"text","text":"Сахелия (меланхолик)","x":-520,"y":120,"width":250,"height":60},
+		{"id":"1cbdef7c1755d9e9","type":"text","text":"Фокальное лицо, читатель. Вполне уверен в своих силах, но очень тревожен. Имеет проблемы с агрессией и контролем эмоций, иногда бывает излишне самоуверенным.","x":-100,"y":-270,"width":534,"height":81},
+		{"id":"fb24005516e1e9cf","type":"text","text":"Comic-relief. Всегда сохраняет оптимистичный настрой, но легко срывается в эмоции.","x":-100,"y":-95,"width":534,"height":90},
+		{"id":"5fc7e42ca370c791","type":"text","text":"Нервный и очень осторожный трикстер","x":-89,"y":123,"width":389,"height":57},
+		{"id":"5c6b34453383305d","type":"text","text":"Эдгар попросил Винсента найти Сахелию?","x":-140,"y":-400,"width":500,"height":80}
+	],
+	"edges":[
+		{"id":"c57e5aa5418bcd99","fromNode":"996e180985899951","fromSide":"right","toNode":"fb24005516e1e9cf","toSide":"left"},
+		{"id":"d1b4891322a380d8","fromNode":"5f6b5e472783d961","fromSide":"right","toNode":"1cbdef7c1755d9e9","toSide":"left"},
+		{"id":"5dc68fbd059d204a","fromNode":"e45e65f79e9c7ee4","fromSide":"right","toNode":"5fc7e42ca370c791","toSide":"left"}
+	]
+}

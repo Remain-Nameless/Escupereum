@@ -1,0 +1,14 @@
+[
+  [
+    {
+      "role": "user",
+      "content": "Что ты умеешь?\n"
+    }
+  ],
+  [
+    {
+      "role": "user",
+      "content": "What can you do?\n"
+    }
+  ]
+]
