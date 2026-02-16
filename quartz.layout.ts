@@ -52,9 +52,7 @@ Component.Explorer({
 }),
   ],
   right: [
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
-	Component.Graph({
+    Component.Graph({
 	localGraph: {
     drag: true, // whether to allow panning the view around
     zoom: true, // whether to allow zooming in and out
@@ -83,7 +81,9 @@ Component.Explorer({
     showTags: true, // whether to show tags in the graph
     enableRadial: true, // whether to constrain the graph, similar to Obsidian
   },
-})
+}),
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Backlinks(),
   ],
 }
 
