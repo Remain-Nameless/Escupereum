@@ -38,7 +38,7 @@ header {
 @media screen and ($mobile) {
   #links-header {
     display: block;
-    overflow: scroll;
+    overflow: fixed;
     white-space: nowrap;
   
     & a.links-header-item {
