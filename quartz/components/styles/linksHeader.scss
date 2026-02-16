@@ -34,7 +34,7 @@ header {
   }
 }
 
-@media screen and (max-width: $mobileBreakpoint) {
+@media screen and (max-width: $mobile) {
   #links-header {
     flex-wrap: nowrap;
     justify-content: space-between;
