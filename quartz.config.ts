@@ -24,7 +24,7 @@ const config: QuartzConfig = {
       cdnCaching: true,
       typography: {
 		title: "Spectral SC",
-        header: "Comforter",
+        header: "Playfair Display",
         body: "EB Garamond",
         code: "Roboto",
 		textAlign: "justify",
