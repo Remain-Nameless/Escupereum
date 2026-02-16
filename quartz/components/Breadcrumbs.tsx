@@ -30,9 +30,9 @@ interface BreadcrumbOptions {
 
 const defaultOptions: BreadcrumbOptions = {
   spacerSymbol: "❯",
-  rootName: "Home",
+  rootName: "Главная",
   resolveFrontmatterTitle: true,
-  showCurrentPage: true,
+  showCurrentPage: false,
 }
 
 function formatCrumb(displayName: string, baseSlug: FullSlug, currentSlug: SimpleSlug): CrumbData {
