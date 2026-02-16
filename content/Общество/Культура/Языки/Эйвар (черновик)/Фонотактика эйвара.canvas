@@ -2,15 +2,18 @@
 	"nodes":[
 		{"id":"72cbb6c6e88b8c8b","type":"group","x":-1320,"y":1760,"width":2400,"height":1180,"label":"Группа без названия"},
 		{"id":"bd92eab5dcd8fc80","type":"group","x":-1320,"y":160,"width":633,"height":1360,"label":"НАЧАЛО СЛОГА"},
+		{"id":"df838d3af0c9a649","type":"group","x":520,"y":160,"width":560,"height":1520,"label":"КОНЕЦ СЛОГА"},
 		{"id":"1301724689574a6b","type":"group","x":-240,"y":160,"width":240,"height":1355,"label":"СЕРЕДИНА СЛОГА"},
-		{"id":"1e4592206274ff32","type":"group","x":552,"y":920,"width":440,"height":265,"label":"Плавный + взрывной"},
 		{"id":"0d0ccc0199a6ebe3","type":"group","x":-1285,"y":1355,"width":558,"height":160,"label":"Скопления согласных"},
+		{"id":"1ff8c92adc1fd476","type":"group","x":551,"y":585,"width":461,"height":105,"label":"Взрывной + носовой аффрикативный"},
 		{"id":"82e0fda64690decd","type":"group","x":-1280,"y":210,"width":300,"height":130,"label":"Взрывной"},
+		{"id":"9050d7f8e31d60d5","type":"group","x":-1280,"y":660,"width":460,"height":70,"label":"Ретрофлексный фрикатив"},
 		{"id":"f91b45e89762fc90","type":"group","x":-1280,"y":400,"width":460,"height":60,"label":"Губной фрикатив"},
-		{"id":"11aa8aac0ffb7430","type":"group","x":-1285,"y":1235,"width":400,"height":65,"label":"Глоттальный"},
-		{"id":"b1b283dcc64a540a","type":"group","x":-1280,"y":960,"width":395,"height":60,"label":"Плавный"},
+		{"id":"6eb7804674911437","type":"group","x":552,"y":440,"width":460,"height":60,"label":"Губной фрикатив"},
+		{"id":"ee768a0da3119169","type":"group","x":552,"y":1220,"width":440,"height":60,"label":"Плавный + носовой"},
+		{"id":"7fda2ea5b9c98561","type":"group","x":552,"y":780,"width":317,"height":80,"label":"Альвеолярный фрикатив"},
+		{"id":"6f2dda42b8d3eb76","type":"group","x":-1279,"y":800,"width":395,"height":60,"label":"Носовой"},
 		{"id":"2636422399c394a7","type":"group","x":-884,"y":210,"width":197,"height":120,"label":"+ плавный"},
-		{"id":"2bab95d6ad590798","type":"group","x":-1280,"y":1100,"width":317,"height":70,"label":"Аффрикативный"},
 		{"id":"093e6f57dbb33b97","type":"group","x":-1279,"y":517,"width":317,"height":66,"label":"Альвеолярный фрикатив"},
 		{
 			"id":"f0506136226c8025",
@@ -22,38 +25,15 @@
 			"height":60,
 			"label":"Аппроксимант"
 		},
-		{"id":"b2440783dfdb7af6","type":"group","x":-885,"y":514,"width":198,"height":71,"label":"+ взрывной"},
-		{"id":"df838d3af0c9a649","type":"group","x":520,"y":160,"width":560,"height":1520,"label":"КОНЕЦ СЛОГА"},
-		{"id":"1ff8c92adc1fd476","type":"group","x":551,"y":585,"width":461,"height":105,"label":"Взрывной + носовой аффрикативный"},
-		{"id":"88972adb1f1c82df","type":"group","x":552,"y":1500,"width":248,"height":180,"label":"Фрикативный"},
-		{"id":"9050d7f8e31d60d5","type":"group","x":-1280,"y":660,"width":460,"height":70,"label":"Ретрофлексный фрикатив"},
-		{"id":"6eb7804674911437","type":"group","x":552,"y":440,"width":460,"height":60,"label":"Губной фрикатив"},
-		{"id":"ee768a0da3119169","type":"group","x":552,"y":1220,"width":440,"height":60,"label":"Плавный + носовой"},
-		{"id":"f9847c30cc3842f4","type":"group","x":552,"y":1360,"width":440,"height":60,"label":"Аппроксимант"},
-		{"id":"7fda2ea5b9c98561","type":"group","x":552,"y":780,"width":317,"height":80,"label":"Альвеолярный фрикатив"},
-		{"id":"6f2dda42b8d3eb76","type":"group","x":-1279,"y":800,"width":395,"height":60,"label":"Носовой"},
 		{"id":"fc994100cd767522","type":"group","x":551,"y":220,"width":186,"height":80,"label":"Плавный"},
+		{"id":"b2440783dfdb7af6","type":"group","x":-885,"y":514,"width":198,"height":71,"label":"+ взрывной"},
 		{"id":"420475427da4d6d7","type":"group","x":551,"y":340,"width":185,"height":60,"label":"Носовой"},
-		{
-			"id":"14e8b6a844c6dd4e",
-			"type":"text",
-			"text":"ʐ",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-1202,
-			"y":670,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"abf7b8b9c12e8cd9",
-			"type":"text",
-			"text":"ʂ",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-1262,
-			"y":670,
-			"width":60,
-			"height":60
-		},
+		{"id":"1e4592206274ff32","type":"group","x":552,"y":920,"width":440,"height":265,"label":"Плавный + взрывной"},
+		{"id":"11aa8aac0ffb7430","type":"group","x":-1285,"y":1235,"width":400,"height":65,"label":"Глоттальный"},
+		{"id":"b1b283dcc64a540a","type":"group","x":-1280,"y":960,"width":395,"height":60,"label":"Плавный"},
+		{"id":"2bab95d6ad590798","type":"group","x":-1280,"y":1100,"width":317,"height":70,"label":"Аффрикативный"},
+		{"id":"88972adb1f1c82df","type":"group","x":552,"y":1500,"width":248,"height":180,"label":"Фрикативный"},
+		{"id":"f9847c30cc3842f4","type":"group","x":552,"y":1360,"width":440,"height":60,"label":"Аппроксимант"},
 		{
 			"id":"6447d835b7f92430",
 			"type":"text",
@@ -131,67 +111,6 @@
 			"color":"#7ddb76"
 		},
 		{
-			"id":"d840185b3691bd71",
-			"type":"text",
-			"text":"# (C)VC\nСогласный + гласный + согласный",
-			"styleAttributes":{"textAlign":"center"},
-			"x":502,
-			"y":-60,
-			"width":578,
-			"height":140
-		},
-		{
-			"id":"f66646bc22808ba4",
-			"type":"text",
-			"text":"n",
-			"styleAttributes":{"textAlign":"center"},
-			"x":646,
-			"y":340,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"aa1c4130b56d2309",
-			"type":"text",
-			"text":"v",
-			"styleAttributes":{"textAlign":"center"},
-			"x":570,
-			"y":440,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"c1a17d3518a51123",
-			"type":"text",
-			"text":"gŋ",
-			"styleAttributes":{"textAlign":"center"},
-			"x":587,
-			"y":595,
-			"width":60,
-			"height":65,
-			"color":"3"
-		},
-		{
-			"id":"817745b313bc44d8",
-			"type":"text",
-			"text":"f",
-			"styleAttributes":{"textAlign":"center"},
-			"x":630,
-			"y":440,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"f682db4dc9e79886",
-			"type":"text",
-			"text":"m",
-			"styleAttributes":{"textAlign":"center"},
-			"x":586,
-			"y":340,
-			"width":60,
-			"height":60
-		},
-		{
 			"id":"ee0b2d1c7606f27f",
 			"type":"text",
 			"text":"θ",
@@ -201,46 +120,6 @@
 			"width":60,
 			"height":60,
 			"color":"3"
-		},
-		{
-			"id":"0b94363706c8cddc",
-			"type":"text",
-			"text":"s",
-			"styleAttributes":{"textAlign":"center"},
-			"x":570,
-			"y":786,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"193e6d2b1aeb8311",
-			"type":"text",
-			"text":"z",
-			"styleAttributes":{"textAlign":"center"},
-			"x":630,
-			"y":786,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"5cca6f05e40c4a90",
-			"type":"text",
-			"text":"r",
-			"styleAttributes":{"textAlign":"center"},
-			"x":570,
-			"y":235,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"0a2c408ebc40f443",
-			"type":"text",
-			"text":"l",
-			"styleAttributes":{"textAlign":"center"},
-			"x":630,
-			"y":235,
-			"width":60,
-			"height":60
 		},
 		{
 			"id":"c52538929a7f512c",
@@ -297,57 +176,6 @@
 			"color":"3"
 		},
 		{
-			"id":"08d5d61f103319ec",
-			"type":"text",
-			"text":"ɜ",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-146,
-			"y":846,
-			"width":60,
-			"height":60,
-			"color":"4"
-		},
-		{
-			"id":"409a6f369f2fc05d",
-			"type":"text",
-			"text":"n",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-1214,
-			"y":800,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"1a805c50376316e6",
-			"type":"text",
-			"text":"j",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-682,
-			"y":1460,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"e1f29728e5cbb019",
-			"type":"text",
-			"text":"Может вторгаться в слог перед гласным",
-			"styleAttributes":{"border":"invisible"},
-			"x":-622,
-			"y":1460,
-			"width":195,
-			"height":60
-		},
-		{
-			"id":"8341ced8b0ff1e35",
-			"type":"text",
-			"text":"m",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-1274,
-			"y":800,
-			"width":60,
-			"height":60
-		},
-		{
 			"id":"9f0faaa388d786cb",
 			"type":"text",
 			"text":"l",
@@ -378,6 +206,153 @@
 			"height":60
 		},
 		{
+			"id":"8025349d283c4715",
+			"type":"text",
+			"text":"ɦ",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-1250,
+			"y":1235,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"f97a57056edc1ddd",
+			"type":"text",
+			"text":"ʔ",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-1184,
+			"y":1235,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"08d5d61f103319ec",
+			"type":"text",
+			"text":"ɜ",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-146,
+			"y":846,
+			"width":60,
+			"height":60,
+			"color":"4"
+		},
+		{
+			"id":"aabfa7c38318eb25",
+			"type":"text",
+			"text":"œ",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-146,
+			"y":1210,
+			"width":60,
+			"height":60,
+			"color":"3"
+		},
+		{
+			"id":"43cc0132d0eb48c8",
+			"type":"text",
+			"text":"f",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-1202,
+			"y":400,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"42a0a17524d5154b",
+			"type":"text",
+			"text":"a",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-146,
+			"y":570,
+			"width":60,
+			"height":60,
+			"color":"4"
+		},
+		{
+			"id":"87bbed3ba9b1c24f",
+			"type":"text",
+			"text":"v",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-1262,
+			"y":400,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"fa7d95619aa56e49",
+			"type":"text",
+			"text":"# Закон Геринга\nВзрывной согласный в позиции перед плавным становится глухим.\ng(r) > *kr* / g(l) > *kl*\nd(r) > *tr* / d(l) > *tl*\nb(r) > *pr* / b(l) > *pl*\n\nОбъясняется действием субстратного языка, который был распространён на ассимилированных территориях.",
+			"styleAttributes":{},
+			"x":-1800,
+			"y":154,
+			"width":420,
+			"height":369
+		},
+		{
+			"id":"584319e021e8b94d",
+			"type":"text",
+			"text":"g",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-1262,
+			"y":215,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"55865be3c1e215f4",
+			"type":"text",
+			"text":"k",
+			"styleAttributes":{
+				"textAlign":"center",
+				"border":null,
+				"shape":null
+			},
+			"x":-1262,
+			"y":275,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"14e8b6a844c6dd4e",
+			"type":"text",
+			"text":"ʐ",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-1202,
+			"y":670,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"abf7b8b9c12e8cd9",
+			"type":"text",
+			"text":"ʂ",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-1262,
+			"y":670,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"409a6f369f2fc05d",
+			"type":"text",
+			"text":"n",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-1214,
+			"y":800,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"8341ced8b0ff1e35",
+			"type":"text",
+			"text":"m",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-1274,
+			"y":800,
+			"width":60,
+			"height":60
+		},
+		{
 			"id":"112ad42837431a7b",
 			"type":"text",
 			"text":"p",
@@ -398,12 +373,155 @@
 			"height":60
 		},
 		{
+			"id":"46c3185e54c599ee",
+			"type":"text",
+			"text":"u",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-146,
+			"y":756,
+			"width":60,
+			"height":60,
+			"color":"4"
+		},
+		{
+			"id":"c7567b254ad75c73",
+			"type":"text",
+			"text":"o",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-146,
+			"y":660,
+			"width":60,
+			"height":60,
+			"color":"4"
+		},
+		{
+			"id":"aa1c4130b56d2309",
+			"type":"text",
+			"text":"v",
+			"styleAttributes":{"textAlign":"center"},
+			"x":570,
+			"y":440,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"c1a17d3518a51123",
+			"type":"text",
+			"text":"gŋ",
+			"styleAttributes":{"textAlign":"center"},
+			"x":587,
+			"y":595,
+			"width":60,
+			"height":65,
+			"color":"3"
+		},
+		{
+			"id":"817745b313bc44d8",
+			"type":"text",
+			"text":"f",
+			"styleAttributes":{"textAlign":"center"},
+			"x":630,
+			"y":440,
+			"width":60,
+			"height":60
+		},
+		{
 			"id":"97f4e4746d4cf965",
 			"type":"text",
 			"text":"k",
 			"styleAttributes":{"textAlign":"center"},
 			"x":-760,
 			"y":520,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"6a5470a4c5e9c77f",
+			"type":"text",
+			"text":"z",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-1201,
+			"y":523,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"6ff37b0b3bf5407b",
+			"type":"text",
+			"text":"s",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-1261,
+			"y":523,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"d840185b3691bd71",
+			"type":"text",
+			"text":"# (C)VC\nСогласный + гласный + согласный",
+			"styleAttributes":{"textAlign":"center"},
+			"x":502,
+			"y":-60,
+			"width":578,
+			"height":140
+		},
+		{
+			"id":"f66646bc22808ba4",
+			"type":"text",
+			"text":"n",
+			"styleAttributes":{"textAlign":"center"},
+			"x":646,
+			"y":340,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"f682db4dc9e79886",
+			"type":"text",
+			"text":"m",
+			"styleAttributes":{"textAlign":"center"},
+			"x":586,
+			"y":340,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"0b94363706c8cddc",
+			"type":"text",
+			"text":"s",
+			"styleAttributes":{"textAlign":"center"},
+			"x":570,
+			"y":786,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"193e6d2b1aeb8311",
+			"type":"text",
+			"text":"z",
+			"styleAttributes":{"textAlign":"center"},
+			"x":630,
+			"y":786,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"5cca6f05e40c4a90",
+			"type":"text",
+			"text":"r",
+			"styleAttributes":{"textAlign":"center"},
+			"x":570,
+			"y":235,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"0a2c408ebc40f443",
+			"type":"text",
+			"text":"l",
+			"styleAttributes":{"textAlign":"center"},
+			"x":630,
+			"y":235,
 			"width":60,
 			"height":60
 		},
@@ -450,15 +568,56 @@
 			"color":"4"
 		},
 		{
-			"id":"aabfa7c38318eb25",
+			"id":"cb79278f32445e5b",
 			"type":"text",
-			"text":"œ",
+			"text":"# (C)V\nСогласный + гласный",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-1320,
+			"y":-60,
+			"width":1320,
+			"height":140
+		},
+		{
+			"id":"0c07b1134c8f2e18",
+			"type":"text",
+			"text":"i",
 			"styleAttributes":{"textAlign":"center"},
 			"x":-146,
-			"y":1210,
+			"y":480,
+			"width":60,
+			"height":60,
+			"color":"4"
+		},
+		{
+			"id":"ed6ad6edbdb220b0",
+			"type":"text",
+			"text":"e",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-146,
+			"y":240,
 			"width":60,
 			"height":60,
 			"color":"3"
+		},
+		{
+			"id":"1a805c50376316e6",
+			"type":"text",
+			"text":"j",
+			"styleAttributes":{"textAlign":"center"},
+			"x":-682,
+			"y":1460,
+			"width":60,
+			"height":60
+		},
+		{
+			"id":"e1f29728e5cbb019",
+			"type":"text",
+			"text":"Может вторгаться в слог перед гласным",
+			"styleAttributes":{"border":"invisible"},
+			"x":-622,
+			"y":1460,
+			"width":195,
+			"height":60
 		},
 		{
 			"id":"f47c3d2ec2315953",
@@ -471,73 +630,12 @@
 			"height":60
 		},
 		{
-			"id":"6a5470a4c5e9c77f",
-			"type":"text",
-			"text":"z",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-1201,
-			"y":523,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"43cc0132d0eb48c8",
-			"type":"text",
-			"text":"f",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-1202,
-			"y":400,
-			"width":60,
-			"height":60
-		},
-		{
 			"id":"30efabe5462c06f0",
 			"type":"text",
 			"text":"b",
 			"styleAttributes":{"textAlign":"center"},
 			"x":-1142,
 			"y":215,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"6ff37b0b3bf5407b",
-			"type":"text",
-			"text":"s",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-1261,
-			"y":523,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"42a0a17524d5154b",
-			"type":"text",
-			"text":"a",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-146,
-			"y":570,
-			"width":60,
-			"height":60,
-			"color":"4"
-		},
-		{
-			"id":"cb79278f32445e5b",
-			"type":"text",
-			"text":"# (C)V\nСогласный + гласный",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-1320,
-			"y":-60,
-			"width":1320,
-			"height":140
-		},
-		{
-			"id":"87bbed3ba9b1c24f",
-			"type":"text",
-			"text":"v",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-1262,
-			"y":400,
 			"width":60,
 			"height":60
 		},
@@ -576,60 +674,6 @@
 			"height":60
 		},
 		{
-			"id":"0c07b1134c8f2e18",
-			"type":"text",
-			"text":"i",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-146,
-			"y":480,
-			"width":60,
-			"height":60,
-			"color":"4"
-		},
-		{
-			"id":"ed6ad6edbdb220b0",
-			"type":"text",
-			"text":"e",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-146,
-			"y":240,
-			"width":60,
-			"height":60,
-			"color":"3"
-		},
-		{
-			"id":"46c3185e54c599ee",
-			"type":"text",
-			"text":"u",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-146,
-			"y":756,
-			"width":60,
-			"height":60,
-			"color":"4"
-		},
-		{
-			"id":"c7567b254ad75c73",
-			"type":"text",
-			"text":"o",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-146,
-			"y":660,
-			"width":60,
-			"height":60,
-			"color":"4"
-		},
-		{
-			"id":"fa7d95619aa56e49",
-			"type":"text",
-			"text":"# Закон Геринга\nВзрывной согласный в позиции перед плавным становится глухим.\ng(r) > *kr* / g(l) > *kl*\nd(r) > *tr* / d(l) > *tl*\nb(r) > *pr* / b(l) > *pl*\n\nОбъясняется действием субстратного языка, который был распространён на ассимилированных территориях.",
-			"styleAttributes":{},
-			"x":-1800,
-			"y":154,
-			"width":420,
-			"height":369
-		},
-		{
 			"id":"660e4c8a6995719f",
 			"type":"text",
 			"text":"str",
@@ -650,56 +694,12 @@
 			"height":60
 		},
 		{
-			"id":"8025349d283c4715",
-			"type":"text",
-			"text":"ɦ",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-1250,
-			"y":1235,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"f97a57056edc1ddd",
-			"type":"text",
-			"text":"ʔ",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-1184,
-			"y":1235,
-			"width":60,
-			"height":60
-		},
-		{
 			"id":"f7010bcef5b500fc",
 			"type":"text",
 			"text":"skr",
 			"styleAttributes":{"textAlign":"center"},
 			"x":-1130,
 			"y":1415,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"584319e021e8b94d",
-			"type":"text",
-			"text":"g",
-			"styleAttributes":{"textAlign":"center"},
-			"x":-1262,
-			"y":215,
-			"width":60,
-			"height":60
-		},
-		{
-			"id":"55865be3c1e215f4",
-			"type":"text",
-			"text":"k",
-			"styleAttributes":{
-				"textAlign":"center",
-				"border":null,
-				"shape":null
-			},
-			"x":-1262,
-			"y":275,
 			"width":60,
 			"height":60
 		},
