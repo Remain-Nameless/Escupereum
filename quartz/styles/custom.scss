@@ -200,35 +200,6 @@ pre:has(>code.mermaid) {
 // Mobile screens will ignore this block and use base.scss + component CSS.
 // ===========================================================
 
-@media not all and ($mobile) {
-
-  // --- Custom #quartz-body Grid Layout (Non-mobile ONLY) ---
-  #quartz-body {
-    display: grid;
-    grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr) #{$sidePanelWidth};
-    grid-template-rows: auto minmax(0, 1fr) auto;
-    grid-template-areas:
-      "header-left  header-center header-right"
-      "left         center      right"
-      "footer       footer      footer";
-    column-gap: map.get($desktopGrid, columnGap);
-    row-gap: map.get($desktopGrid, rowGap);
-    min-height: 100vh;
-    box-sizing: border-box;
-
-    // Tablet Grid Override (Non-mobile ONLY)
-    @media all and ($tablet) {
-      grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr);
-      grid-template-areas:
-        "header-left  header-center"
-        "left         center"
-        "left         right"
-        "footer       footer";
-      column-gap: map.get($tabletGrid, columnGap);
-      row-gap: map.get($tabletGrid, rowGap);
-    }
-  } // End #quartz-body non-mobile styles
-
   // --- Custom Fixed Header Styles (Non-mobile ONLY) ---
   header {
     grid-area: header-left / header-left / header-right / header-right; // Span header grid areas
