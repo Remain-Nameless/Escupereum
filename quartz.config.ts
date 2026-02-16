@@ -24,8 +24,8 @@ const config: QuartzConfig = {
       cdnCaching: true,
       typography: {
 		title: "Spectral SC",
-        header: "Montserrat Alternates",
-        body: "Jost",
+        header: "Comforter",
+        body: "EB Garamond",
         code: "Roboto",
 		textAlign: "justify",
       },
