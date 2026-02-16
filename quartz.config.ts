@@ -42,7 +42,7 @@ const config: QuartzConfig = {
           textHighlight: "#fff23688",
         },
         darkMode: {
-          light: "#12141E",
+          light: "#232635",
           lightgray: "#d8917d",
           gray: "#646464",
           darkgray: "#f7e6d4",

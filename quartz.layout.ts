@@ -4,7 +4,7 @@ import * as Component from "./quartz/components"
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [Component.LinksHeader()],
+  header: [],
   afterBody: [],
   footer: Component.Footer({
     links: {
@@ -52,6 +52,7 @@ Component.Explorer({
 }),
   ],
   right: [
+  Component.LinksHeader()
     Component.Graph({
 	localGraph: {
     drag: true, // whether to allow panning the view around
