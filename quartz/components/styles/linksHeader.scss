@@ -1,49 +1,41 @@
 @use "../../styles/variables.scss" as *;
 
-header {
-  display: block;
-  margin-top: 1rem;
-}
 
+// Style the container holding the links
 #links-header {
-  font-size: 1.2em;
-  margin: 0 0.2em;
-  /*display: flex;*/
-  /*flex-flow: row wrap;*/
-  justify-content: flex-start;
-  /*align-content: space-between;*/
-/* remove flex-box on MMW LinksHeader */
+  display: flex; 
+  //flex-grow: 1; // Allow it to take space from layout's grow: true
+  flex-wrap: nowrap; // Prevent links from wrapping
+  align-items: center;     // Vertically center links
+  justify-content: flex-end; // Align link group to the left within its space (change if needed)
+  gap: 2.5em; // Space between links (adjust)
+  font-size: 1.0em; // Adjust font size if needed for Rock Salt
+  margin: 0;              
+  padding: 0;             
+  overflow: hidden;       // Hide overflow if links are too wide
+  white-space: nowrap;    // Prevent link text itself from wrapping
+  box-sizing: border-box;
+  width: 100%;
 
-  svg {
-    height: 1em;
-    margin: 0 0.3em 0 0;
-    vertical-align: middle;
+  a { 
+    display: inline-block; 
+    color: var(--dark);
+    // Font is applied globally via _custom.scss
+    text-decoration: none;
+    padding: 0.2rem 0; 
   }
-
-  a.links-header-item {
-    display: inline-block;
-    padding: 10px 15px;
-    box-sizing: border-box;
-    /*width: 20%;*/
-/*remove flex-box on MMW LinksHeader */
-  }  
-}
-
-#links-header-container {
-  hr {
-    margin: 1rem 0;
+  span { 
+     display: inline-block;
+     margin: 0;
   }
 }
 
-@media screen and ($mobile) {
+// --- Mobile Styles: Hide component ---
+@media #{$mobile} {
   #links-header {
-    display: block;
-    overflow: scroll;
-    white-space: nowrap;
-  
-    & a.links-header-item {
-      box-sizing: unset;
-      width: unset;
-    }
+      // display: none; // Hide if mobile uses separate nav
+      // Or style differently if header is different on mobile
+      justify-content: center; // Example: center on mobile if shown
+      gap: 1em;
   }
 }
