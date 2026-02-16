@@ -52,7 +52,7 @@ Component.Explorer({
 }),
   ],
   right: [
-  Component.LinksHeader()
+  Component.LinksHeader(),
     Component.Graph({
 	localGraph: {
     drag: true, // whether to allow panning the view around
