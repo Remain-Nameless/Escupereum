@@ -187,6 +187,19 @@ pre:has(>code.mermaid) {
   margin-bottom: 0;
 }
 
+// --- Header Height Variable --- (Used by non-mobile styles)
+:root {
+  // Adjust based on inspection!
+  --header-height: 4rem;
+}
+
+// ===========================================================
+// --- CUSTOM DESKTOP & TABLET STYLES ---
+// Rules within this block apply ONLY to non-mobile screens,
+// overriding base.scss where necessary for the custom layout.
+// Mobile screens will ignore this block and use base.scss + component CSS.
+// ===========================================================
+
 @media not all and ($mobile) {
 
   // --- Custom #quartz-body Grid Layout (Non-mobile ONLY) ---
