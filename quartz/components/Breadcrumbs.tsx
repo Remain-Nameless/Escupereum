@@ -10,9 +10,21 @@ type CrumbData = {
 }
 
 interface BreadcrumbOptions {
+  /**
+   * Symbol between crumbs
+   */
   spacerSymbol: string
+  /**
+   * Name of first crumb
+   */
   rootName: string
+  /**
+   * Whether to look up frontmatter title for folders (could cause performance problems with big vaults)
+   */
   resolveFrontmatterTitle: boolean
+  /**
+   * Whether to display the current page in the breadcrumbs.
+   */
   showCurrentPage: boolean
 }
 
@@ -39,6 +51,17 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
     displayClass,
     ctx,
   }: QuartzComponentProps) => {
+    // Проверяем, есть ли у текущей страницы тег "explorerexclude"
+    const tags = fileData.frontmatter?.tags
+    if (tags) {
+      const hasExplorerExclude = Array.isArray(tags)
+        ? tags.includes("explorerexclude")
+        : tags === "explorerexclude"
+      if (hasExplorerExclude) {
+        return null // Не отображаем компонент на таких страницах
+      }
+    }
+
     const trie = (ctx.trie ??= trieFromAllFiles(allFiles))
     const slugParts = fileData.slug!.split("/")
     const pathNodes = trie.ancestryChain(slugParts)
@@ -47,38 +70,21 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
       return null
     }
 
-    // Создаём карту для быстрого поиска файла по слагу
-    const fileMap = new Map(allFiles.map(f => [f.slug, f]))
-
-    // Фильтруем узлы, исключая страницы с тегом "explorerexclude"
-    const filteredPathNodes = pathNodes.filter(node => {
-      const file = fileMap.get(node.slug)
-      // Если файл не найден (например, папка) — оставляем
-      if (!file) return true
-      // Проверяем наличие тега в frontmatter
-      const tags = file.frontmatter?.tags
-      return !(Array.isArray(tags) && tags.includes("explorerexclude"))
-    })
-
-    if (filteredPathNodes.length === 0) {
-      return null
-    }
-
-    // Формируем крошки из отфильтрованных узлов
-    const crumbs: CrumbData[] = filteredPathNodes.map((node, idx) => {
+    const crumbs: CrumbData[] = pathNodes.map((node, idx) => {
       const crumb = formatCrumb(node.displayName, fileData.slug!, simplifySlug(node.slug))
       if (idx === 0) {
         crumb.displayName = options.rootName
       }
-      // Для последнего узла путь оставляем пустым (текущая страница)
-      if (idx === filteredPathNodes.length - 1) {
+
+      // For last node (current page), set empty path
+      if (idx === pathNodes.length - 1) {
         crumb.path = ""
       }
+
       return crumb
     })
 
-    // Удаляем последний элемент, если не нужно показывать текущую страницу
-    if (!options.showCurrentPage && filteredPathNodes.length > 0) {
+    if (!options.showCurrentPage) {
       crumbs.pop()
     }
 

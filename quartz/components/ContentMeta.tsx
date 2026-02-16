@@ -24,6 +24,17 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
   const options: ContentMetaOptions = { ...defaultOptions, ...opts }
 
   function ContentMetadata({ cfg, fileData, displayClass }: QuartzComponentProps) {
+    // Проверяем, есть ли у текущей страницы тег "explorerexclude"
+    const tags = fileData.frontmatter?.tags
+    if (tags) {
+      const hasExplorerExclude = Array.isArray(tags)
+        ? tags.includes("explorerexclude")
+        : tags === "explorerexclude"
+      if (hasExplorerExclude) {
+        return null // Не отображаем компонент на таких страницах
+      }
+    }
+
     const text = fileData.text
 
     if (text) {
