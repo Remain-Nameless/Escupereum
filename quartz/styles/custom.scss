@@ -204,7 +204,6 @@ pre:has(>code.mermaid) {
   header {
     grid-area: header-left / header-left / header-right / header-right; // Span header grid areas
     display: grid; // Use grid for internal alignment
-    grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr) #{$sidePanelWidth}; // Match parent columns
     column-gap: map.get($desktopGrid, columnGap); // Match parent gap
     align-items: center;
     margin: 0;
