@@ -4,7 +4,7 @@ import * as Component from "./quartz/components"
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [],
+  header: [Component.LinksHeader()],
   afterBody: [],
   footer: Component.Footer({
     links: {
@@ -27,7 +27,17 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-	Component.Explorer({
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+        { Component: Component.ReaderMode() },
+      ],
+    }),
+Component.Explorer({
 	title: "Содержание", // title of the explorer component
   folderClickBehavior: "collapse", // what happens when you click a folder ("link" to navigate to folder page on click or "collapse" to collapse folder on click)
   folderDefaultState: "collapsed", // default state of folders ("collapsed" or "open")
@@ -40,22 +50,9 @@ export const defaultContentPageLayout: PageLayout = {
   // what order to apply functions in
   order: ["filter", "map", "sort"],
 }),
-    Component.Backlinks(),
   ],
   right: [
-  Component.LinksHeader(),
-        Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
-      ],
-    }),
-    Component.DesktopOnly(Component.TableOfContents()),
-	    Component.Graph({
+    Component.Graph({
 	localGraph: {
     drag: true, // whether to allow panning the view around
     zoom: true, // whether to allow zooming in and out
@@ -85,6 +82,8 @@ export const defaultContentPageLayout: PageLayout = {
     enableRadial: true, // whether to constrain the graph, similar to Obsidian
   },
 }),
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Backlinks(),
   ],
 }
 
