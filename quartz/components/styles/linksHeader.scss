@@ -10,8 +10,8 @@ header {
   margin: 0 0.2em;
   /*display: flex;*/
   /*flex-flow: row wrap;*/
-  /*justify-content: flex-start;*/
-  /*align-content: space-between;*/
+	justify-content: space-between;
+	align-content: space-between;
 /* remove flex-box on MMW LinksHeader */
 
   svg {
