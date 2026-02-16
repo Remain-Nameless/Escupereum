@@ -29,6 +29,7 @@
     // Font is applied globally via _custom.scss
     text-decoration: none;
     padding: 0.2rem 0; 
+    vertical-align: middle;
   }
   span { 
      display: inline-block;
@@ -39,7 +40,7 @@
 // --- Mobile Styles: Hide component ---
 @media #{$mobile} {
   #links-header {
-      // display: none; // Hide if mobile uses separate nav
+      display: inline-block; // Hide if mobile uses separate nav
       // Or style differently if header is different on mobile
       justify-content: center; // Example: center on mobile if shown
       gap: 1em;
