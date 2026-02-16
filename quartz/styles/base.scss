@@ -4,6 +4,7 @@
 @use "./syntax.scss";
 @use "./callouts.scss";
 
+
 html {
   scroll-behavior: smooth;
   text-size-adjust: none;
@@ -39,13 +40,23 @@ li,
 ol,
 ul,
 .katex,
-.math,
-.typst-doc,
-.typst-doc * {
+.math {
   color: var(--darkgray);
   fill: var(--darkgray);
-  overflow-wrap: break-word;
-  text-wrap: pretty;
+  hyphens: auto;
+}
+
+p,
+ul,
+text,
+a,
+li,
+ol,
+ul,
+.katex,
+.math {
+  overflow-wrap: anywhere;
+  /* tr and td removed from list of selectors for overflow-wrap, allowing them to use default 'normal' property value */
 }
 
 .math {
@@ -112,9 +123,8 @@ a {
   }
 
   &.external .external-icon {
-    height: 0ex;
+    height: 1ex;
     margin: 0 0.15em;
-	opacity: 0;
 
     > path {
       fill: var(--dark);
@@ -212,7 +222,7 @@ a {
     }
 
     & .sidebar {
-      gap: 1.2rem;
+      gap: 2rem;
       top: 0;
       box-sizing: border-box;
       padding: $topSpacing 2rem 2rem 2rem;
@@ -631,29 +641,4 @@ iframe.pdf {
   background: var(--secondary);
   transition: width 0.2s ease;
   z-index: 9999;
-}
-
-div.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  object-fit: cover;
-}
-
-div.gallery-item {
-  width: 32%;
-  object-fit: cover;
-}
-
-div.gallery-item:hover {
-  border: 1px solid #d8917d;
-}
-
-div.gallery-item img {
-  object-fit: cover;
-}
-
-div.gallery-item div.desc {
-  padding: 15px;
-  text-align: center;
 }
