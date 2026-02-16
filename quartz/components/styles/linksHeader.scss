@@ -1,6 +1,7 @@
 @use "../../styles/variables.scss" as *;
 
-header {
+header 
+  position: sticky;
   display: block;
   margin-top: 1rem;
 }
