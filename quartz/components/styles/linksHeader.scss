@@ -7,7 +7,7 @@ header {
 
 #links-header {
   font-size: 1.2em;
-  margin: 0 0.2em;
+  margin: 0 0.6em;
   /*display: flex;*/
   /*flex-flow: row wrap;*/
   /*justify-content: flex-start;*/
@@ -38,7 +38,7 @@ header {
 @media screen and ($mobile) {
   #links-header {
     display: block;
-    overflow: fixed;
+    overflow: scroll;
     white-space: nowrap;
   
     & a.links-header-item {
