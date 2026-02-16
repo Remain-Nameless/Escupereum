@@ -5,6 +5,9 @@
 #links-header {
   display: flex; 
   //flex-grow: 1; // Allow it to take space from layout's grow: true\
+  flex-direction: column;
+    position: relative;
+  background-color: var(--background);
   flex-wrap: nowrap; // Prevent links from wrapping
   align-items: center;     // Vertically center links
   justify-content: flex-end; // Align link group to the left within its space (change if needed)
