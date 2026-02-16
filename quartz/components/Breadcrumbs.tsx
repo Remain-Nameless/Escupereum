@@ -10,21 +10,9 @@ type CrumbData = {
 }
 
 interface BreadcrumbOptions {
-  /**
-   * Symbol between crumbs
-   */
   spacerSymbol: string
-  /**
-   * Name of first crumb
-   */
   rootName: string
-  /**
-   * Whether to look up frontmatter title for folders (could cause performance problems with big vaults)
-   */
   resolveFrontmatterTitle: boolean
-  /**
-   * Whether to display the current page in the breadcrumbs.
-   */
   showCurrentPage: boolean
 }
 
@@ -44,6 +32,7 @@ function formatCrumb(displayName: string, baseSlug: FullSlug, currentSlug: Simpl
 
 export default ((opts?: Partial<BreadcrumbOptions>) => {
   const options: BreadcrumbOptions = { ...defaultOptions, ...opts }
+
   const Breadcrumbs: QuartzComponent = ({
     fileData,
     allFiles,
@@ -58,28 +47,45 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
       return null
     }
 
-    const crumbs: CrumbData[] = pathNodes.map((node, idx) => {
+    // Создаём карту для быстрого поиска файла по слагу
+    const fileMap = new Map(allFiles.map(f => [f.slug, f]))
+
+    // Фильтруем узлы, исключая страницы с тегом "explorerexclude"
+    const filteredPathNodes = pathNodes.filter(node => {
+      const file = fileMap.get(node.slug)
+      // Если файл не найден (например, папка) — оставляем
+      if (!file) return true
+      // Проверяем наличие тега в frontmatter
+      const tags = file.frontmatter?.tags
+      return !(Array.isArray(tags) && tags.includes("explorerexclude"))
+    })
+
+    if (filteredPathNodes.length === 0) {
+      return null
+    }
+
+    // Формируем крошки из отфильтрованных узлов
+    const crumbs: CrumbData[] = filteredPathNodes.map((node, idx) => {
       const crumb = formatCrumb(node.displayName, fileData.slug!, simplifySlug(node.slug))
       if (idx === 0) {
         crumb.displayName = options.rootName
       }
-
-      // For last node (current page), set empty path
-      if (idx === pathNodes.length - 1) {
+      // Для последнего узла путь оставляем пустым (текущая страница)
+      if (idx === filteredPathNodes.length - 1) {
         crumb.path = ""
       }
-
       return crumb
     })
 
-    if (!options.showCurrentPage) {
+    // Удаляем последний элемент, если не нужно показывать текущую страницу
+    if (!options.showCurrentPage && filteredPathNodes.length > 0) {
       crumbs.pop()
     }
 
     return (
       <nav class={classNames(displayClass, "breadcrumb-container")} aria-label="breadcrumbs">
         {crumbs.map((crumb, index) => (
-          <div class="breadcrumb-element">
+          <div class="breadcrumb-element" key={crumb.path}>
             <a href={crumb.path}>{crumb.displayName}</a>
             {index !== crumbs.length - 1 && <p>{` ${options.spacerSymbol} `}</p>}
           </div>
@@ -87,7 +93,7 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
       </nav>
     )
   }
-  Breadcrumbs.css = breadcrumbsStyle
 
+  Breadcrumbs.css = breadcrumbsStyle
   return Breadcrumbs
 }) satisfies QuartzComponentConstructor
