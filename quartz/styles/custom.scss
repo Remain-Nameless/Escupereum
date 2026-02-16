@@ -45,14 +45,3 @@ pre:has(>code.mermaid) {
         transform: scale(1.05);
     }
 }
-
-@media (max-width: 768px) { // Ширина, на которой начинается мобильная версия
-  .page-header {
-    position: static !important; // Убираем фиксацию
-    top: auto !important;
-    // Также уберите отступы, которые могли добавляться для фиксированной шапки
-  }
-  .page {
-    padding-top: 0 !important;
-  }
-}
