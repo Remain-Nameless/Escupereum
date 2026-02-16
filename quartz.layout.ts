@@ -27,32 +27,7 @@ export const defaultContentPageLayout: PageLayout = {
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
-    Component.Flex({
-      components: [
-        {
-          Component: Component.Search(),
-          grow: true,
-        },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
-      ],
-    }),
-Component.Explorer({
-	title: "Содержание", // title of the explorer component
-  folderClickBehavior: "collapse", // what happens when you click a folder ("link" to navigate to folder page on click or "collapse" to collapse folder on click)
-  folderDefaultState: "collapsed", // default state of folders ("collapsed" or "open")
-  useSavedState: true, // whether to use local storage to save "state" (which folders are opened) of explorer
-  // omitted but shown later
-  filterFn: (node) => {
-    // exclude files with the tag "explorerexclude"
-    return node.data?.tags?.includes("explorerexclude", "глоссарий") !== true
-  },
-  // what order to apply functions in
-  order: ["filter", "map", "sort"],
-}),
-  ],
-  right: [
-    Component.Graph({
+	    Component.Graph({
 	localGraph: {
     drag: true, // whether to allow panning the view around
     zoom: true, // whether to allow zooming in and out
@@ -82,6 +57,31 @@ Component.Explorer({
     enableRadial: true, // whether to constrain the graph, similar to Obsidian
   },
 }),
+Component.Explorer({
+	title: "Содержание", // title of the explorer component
+  folderClickBehavior: "collapse", // what happens when you click a folder ("link" to navigate to folder page on click or "collapse" to collapse folder on click)
+  folderDefaultState: "collapsed", // default state of folders ("collapsed" or "open")
+  useSavedState: true, // whether to use local storage to save "state" (which folders are opened) of explorer
+  // omitted but shown later
+  filterFn: (node) => {
+    // exclude files with the tag "explorerexclude"
+    return node.data?.tags?.includes("explorerexclude", "глоссарий") !== true
+  },
+  // what order to apply functions in
+  order: ["filter", "map", "sort"],
+}),
+  ],
+  right: [
+      Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+        { Component: Component.ReaderMode() },
+      ],
+    }),
   Component.LinksHeader(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
