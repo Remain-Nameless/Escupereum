@@ -4,7 +4,8 @@
 // Style the container holding the links
 #links-header {
   display: flex; 
-  //flex-grow: 1; // Allow it to take space from layout's grow: true
+  //flex-grow: 1; // Allow it to take space from layout's grow: true\
+  vertical-align: middle;
   flex-wrap: nowrap; // Prevent links from wrapping
   align-items: center;     // Vertically center links
   justify-content: flex-end; // Align link group to the left within its space (change if needed)
