@@ -4,7 +4,7 @@ import * as Component from "./quartz/components"
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [],
+  header: [Component.LinksHeader()],
   afterBody: [],
   footer: Component.Footer({
     links: {
@@ -52,8 +52,9 @@ Component.Explorer({
 }),
   ],
   right: [
-  Component.LinksHeader(),
-    Component.Graph({
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Backlinks(),
+	Component.Graph({
 	localGraph: {
     drag: true, // whether to allow panning the view around
     zoom: true, // whether to allow zooming in and out
@@ -82,9 +83,7 @@ Component.Explorer({
     showTags: true, // whether to show tags in the graph
     enableRadial: true, // whether to constrain the graph, similar to Obsidian
   },
-}),
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
+})
   ],
 }
 
