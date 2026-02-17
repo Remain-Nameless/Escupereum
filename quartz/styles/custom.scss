@@ -35,6 +35,9 @@ pre:has(>code.mermaid) {
     }
     #header-text {
         overflow-wrap: unset;
+		.mobile-only {
+  display: none;
+}
     }
 
 .icon-header {
@@ -44,5 +47,8 @@ pre:has(>code.mermaid) {
     &:hover {
         transform: scale(1.05);
     }
+	.mobile-only {
+  display: none;
+}
 }
 
