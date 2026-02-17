@@ -1,8 +1,10 @@
 import { FullSlug, getFullSlug, pathToRoot, simplifySlug } from "../../util/path"
 
 async function navigateToRandomPage() {
+    console.log("navigateToRandomPage called"); // добавить
     const fullSlug = getFullSlug(window)
     const data = await fetchData
+    console.log("fetchData:", data); // посмотреть содержимое
     // Получаем список всех существующих страниц
     const allPosts = Object.keys(data).map((slug) => simplifySlug(slug as FullSlug))
     
@@ -18,6 +20,7 @@ async function navigateToRandomPage() {
 }
 
 document.addEventListener("nav", async (e: unknown) => {
+  console.log("nav event fired"); // добавить
   const slug = (e as CustomEventMap["nav"]).detail.url
   const button = document.getElementById("random-page-button")
   button?.removeEventListener("click", navigateToRandomPage)
