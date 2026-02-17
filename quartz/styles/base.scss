@@ -508,9 +508,8 @@ code {
   font-size: 0.9em;
   color: transparent !important;
   font-family: var(--codeFont);
-  border-radius: 5px;
-  padding: 0.1rem 0.2rem;
-  background: var(--lightgray);
+  border-radius: 0px;
+  background: none;
 }
 
 tbody,
