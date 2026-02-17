@@ -29,7 +29,7 @@ interface BreadcrumbOptions {
 }
 
 const defaultOptions: BreadcrumbOptions = {
-  spacerSymbol: "❯",
+  spacerSymbol: "•✦•",
   rootName: "Главная",
   resolveFrontmatterTitle: true,
   showCurrentPage: false,
