@@ -2,7 +2,8 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import style from "./styles/footer.scss"
 import { version } from "../../package.json"
 import { i18n } from "../i18n"
-import script from "./scripts/randomPage.inline.ts"
+// @ts-ignore
+import script from "./scripts/randomPage.inline"
 
 interface Options {
   links: Record<string, string>
@@ -14,6 +15,11 @@ export default ((opts?: Options) => {
     const links = opts?.links ?? []
     return (
       <footer class={`${displayClass ?? ""}`}>
+          <li>
+            <a href="#">
+            В начало страницы ↑
+            </a> 
+          </li>	  
         <p>
           {i18n(cfg.locale).components.footer.createdWith}{" "}
           <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year}
@@ -27,11 +33,6 @@ export default ((opts?: Options) => {
         </ul>
 		<p></p> 
         <ul>
-          <li>
-            <a href="#">
-            В начало страницы ↑
-            </a> 
-          </li>
           <li>
             <a id="random-page-button">
             Случайная страница 🎲
