@@ -33,11 +33,21 @@ export default ((opts?: Options) => {
         </ul>
 		<p></p> 
         <ul>
-          <li>
-            <a id="random-page-button">
-            Случайная страница 🎲
-            </a>
-          </li>
+      {/* check displayclass exist, check value, render */}
+      {displayClass && !displayClass.includes('mobile-only') && (
+      <li>
+        <a id="random-page-button-mobile">
+        Random Page 🎲
+        </a>
+      </li>
+      )}
+      {displayClass && !displayClass.includes('desktop-only') && (
+      <li>
+        <a id="random-page-button-desktop">
+        Random Page 🎲
+        </a>
+      </li>
+      )}
         </ul>
       </footer>
     )
