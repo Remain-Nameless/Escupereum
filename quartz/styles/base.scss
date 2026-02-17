@@ -112,6 +112,9 @@ a {
         content: "#";
       }
     }
+	 &.missing {
+      color: #db4f42; // TODO: make this a variable
+    }
   }
 
   &.external .external-icon {
