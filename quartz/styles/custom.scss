@@ -54,6 +54,11 @@ pre:has(>code.mermaid) {
 	
 	
 	.secret-text {
-		line-height:1 !important;
 		color: transparent !important;
+		font-family: "Courier New", monospace;
+	}
+
+	.secret-page {
+		color: #702F2F !important;
+		font-family: "Courier New", monospace;
 	}
