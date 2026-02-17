@@ -113,7 +113,8 @@ a {
       }
     }
 	 &.missing {
-      color: #db4f42; // TODO: make this a variable
+      color: #3C3E52; // TODO: make this a variable
+	  pointer-events: none;
     }
   }
 
