@@ -156,7 +156,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   node.properties.src = dest
                 }
               }
-            })
+            }
             file.data.links = [...outgoing]
           }
         },
