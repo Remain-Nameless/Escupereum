@@ -124,8 +124,6 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   outgoing.add(simple)
                   node.properties["data-slug"] = full
 				  
-
-
                 // rewrite link internals if prettylinks is on
                 if (
                   opts.prettyLinks &&
@@ -159,7 +157,6 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                 }
               }
             })
-
             file.data.links = [...outgoing]
           }
         },
