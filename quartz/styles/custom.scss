@@ -52,4 +52,9 @@ pre:has(>code.mermaid) {
 	}
 }
 	
-
+	
+	.secret-text {
+		margin:0; 
+		line-height:1;
+		color: transparent !important;
+	}
