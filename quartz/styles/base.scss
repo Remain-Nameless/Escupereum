@@ -452,6 +452,9 @@ pre {
   overflow-x: auto;
   border: 0px solid var(--lightgray);
   position: relative;
+  @media all and ($mobile) {
+        border: 0px solid var(--lightgray);
+      }
 
   &:has(> code.mermaid) {
     border: none;
@@ -511,6 +514,10 @@ code {
   border-radius: 0px;
   background: none;
 }
+
+.clipboard-button {
+  display: none !important;
+  }
 
 tbody,
 li,
