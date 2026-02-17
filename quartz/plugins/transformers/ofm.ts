@@ -41,7 +41,7 @@ export interface Options {
   enableYouTubeEmbed: boolean
   enableVideoEmbed: boolean
   enableCheckbox: boolean
-  disableBrokenWikilinks: true
+  disableBrokenWikilinks: boolean
 }
 
 const defaultOptions: Options = {
@@ -57,7 +57,7 @@ const defaultOptions: Options = {
   enableYouTubeEmbed: true,
   enableVideoEmbed: true,
   enableCheckbox: false,
-  disableBrokenWikilinks: false,
+  disableBrokenWikilinks: true,
 }
 
 const calloutMapping = {
