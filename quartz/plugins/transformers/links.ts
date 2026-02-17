@@ -25,11 +25,11 @@ interface Options {
 }
 
 const defaultOptions: Options = {
-  markdownLinkResolution: "absolute",
+  markdownLinkResolution: "shortest",
   prettyLinks: true,
   openLinksInNewTab: false,
   lazyLoad: false,
-  externalLinkIcon: true,
+  externalLinkIcon: false,
 }
 
 const isAvailableInternalLink = (slug: SimpleSlug, allSlugs: FullSlug[]) => {
