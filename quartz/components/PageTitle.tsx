@@ -33,7 +33,7 @@ PageTitle.css = `
 }
 
 .page-title {
-  font-size: min;
+  font-size: clamp;
   margin: 0;
   font-family: var(--titleFont);
 }
