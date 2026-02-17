@@ -17,6 +17,7 @@ body {
   background-color: var(--light);
   font-family: var(--bodyFont);
   font-size: 1.3rem;
+  line-height: 1.1;
   color: var(--darkgray);
 }
 
@@ -47,6 +48,7 @@ ul,
   fill: var(--darkgray);
   overflow-wrap: break-word;
   text-wrap: pretty;
+  hyphens: auto;
 }
 
 .math {
