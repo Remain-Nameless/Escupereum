@@ -32,6 +32,9 @@ pre:has(>code.mermaid) {
         img {
             width: 85px;
         }
+	.mobile-only {
+	display: none;
+	}
     }
     #header-text {
         overflow-wrap: unset;
@@ -41,12 +44,12 @@ pre:has(>code.mermaid) {
 .icon-header {
     margin: 0;
     transition: transform 0.2s ease;
-    
     &:hover {
         transform: scale(1.05);
     }
-}
 	.mobile-only {
 	display: none;
 	}
+}
+	
 
