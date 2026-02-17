@@ -2,6 +2,7 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import style from "./styles/footer.scss"
 import { version } from "../../package.json"
 import { i18n } from "../i18n"
+import script from "./scripts/randomPage.inline"
 
 interface Options {
   links: Record<string, string>
@@ -28,12 +29,12 @@ export default ((opts?: Options) => {
         <ul>
           <li>
             <a href="#">
-            Scroll to top ↑
+            В начало страницы ↑
             </a> 
           </li>
           <li>
             <a id="random-page-button">
-            Random Page 🎲
+            Случайная страница 🎲
             </a>
           </li>
         </ul>
