@@ -450,7 +450,7 @@ pre {
   padding: 0 0.5rem;
   border-radius: 5px;
   overflow-x: auto;
-  border: 1px solid var(--lightgray);
+  border: 0px solid var(--lightgray);
   position: relative;
 
   &:has(> code.mermaid) {
@@ -470,7 +470,7 @@ pre {
 
     & [data-highlighted-chars] {
       background-color: var(--highlight);
-      border-radius: 5px;
+      border-radius: 0px;
     }
 
     & > [data-line] {
@@ -505,7 +505,7 @@ pre {
 }
 
 code {
-  font-size: 0.9em;
+  font-size: 1rem;
   color: transparent !important;
   font-family: var(--codeFont);
   border-radius: 0px;
