@@ -31,7 +31,7 @@ const defaultOptions: Options = {
   lazyLoad: false,
   externalLinkIcon: false,
 }
-
+//фильтрация ссылок на отсутствующие страницы
 const isAvailableInternalLink = (slug: SimpleSlug, allSlugs: FullSlug[]) => {
   // if the slug is the index, it's always available
   if(slug.endsWith("index") || slug.endsWith("index.html") || slug.endsWith("/")) return true
@@ -131,7 +131,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   outgoing.add(simple)
                   node.properties["data-slug"] = full
 				  
-					// add the 'missing' class if the link is not available
+					// Добавляет класс missing для ссылок на отсутствующие страницы
                   if (!isAvailableInternalLink(simple, ctx.allSlugs)) classes.push("missing")
                 }
 

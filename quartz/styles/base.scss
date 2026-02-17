@@ -114,8 +114,8 @@ a {
 	 &.missing {
       color: #3C3E52; // TODO: make this a variable
 	  background-color: none;
-	  pointer-events: none;
 	  cursor: text;
+	  pointer-events: none;
     }
   }
 
