@@ -1,14 +1,20 @@
 import { FullSlug, getFullSlug, pathToRoot, simplifySlug } from "../../util/path"
 
-function getRandomInt(max: number) {
-    return Math.floor(Math.random() * max);
-  }
-
 async function navigateToRandomPage() {
     const fullSlug = getFullSlug(window)
     const data = await fetchData
+    // Получаем список всех существующих страниц
     const allPosts = Object.keys(data).map((slug) => simplifySlug(slug as FullSlug))
-    window.location.href = `${pathToRoot(fullSlug)}/${allPosts[getRandomInt(allPosts.length - 1)]}`
+    
+    // Если нет страниц – ничего не делаем
+    if (allPosts.length === 0) return
+
+    // Генерируем случайный индекс от 0 до allPosts.length-1
+    const randomIndex = Math.floor(Math.random() * allPosts.length)
+    const randomSlug = allPosts[randomIndex]
+    
+    // Формируем корректный относительный путь
+    window.location.href = `${pathToRoot(fullSlug)}/${randomSlug}`
 }
 
 document.addEventListener("nav", async (e: unknown) => {

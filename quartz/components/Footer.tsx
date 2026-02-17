@@ -2,8 +2,7 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import style from "./styles/footer.scss"
 import { version } from "../../package.json"
 import { i18n } from "../i18n"
-// @ts-ignore
-import script from "./scripts/randomPage.inline"
+import script from "./scripts/randomPage.inline.ts"
 
 interface Options {
   links: Record<string, string>
@@ -33,21 +32,11 @@ export default ((opts?: Options) => {
         </ul>
 		<p></p> 
         <ul>
-      {/* check displayclass exist, check value, render */}
-      {displayClass && !displayClass.includes('mobile-only') && (
-      <li>
-        <a id="random-page-button-mobile">
-        Random Page 🎲
-        </a>
-      </li>
-      )}
-      {displayClass && !displayClass.includes('desktop-only') && (
-      <li>
-        <a id="random-page-button-desktop">
-        Random Page 🎲
-        </a>
-      </li>
-      )}
+          <li>
+            <a id="random-page-button">
+            Случайная страница 🎲
+            </a>
+          </li>
         </ul>
       </footer>
     )
