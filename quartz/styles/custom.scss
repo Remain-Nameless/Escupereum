@@ -71,9 +71,9 @@ pre:has(>code.mermaid) {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 160px;
-  background-color: #333;
-  color: #fff;
+  width: 300px;
+  background-color: var(--light);
+  color: var(--dark);
   text-align: center;
   border-radius: 4px;
   padding: 6px;
