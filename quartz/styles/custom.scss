@@ -64,15 +64,15 @@ pre:has(>code.mermaid) {
 	}
 	
 	.tooltip {
+  position: relative;
+  display: inline;
   cursor: help;
 }
 
 .tooltip .tooltiptext {
-  position: relative;
   visibility: hidden;
   width: 300px;
   height: 300px;
-  overflow: scroll;
   background-color: var(--light);
   color: var(--dark);
   text-align: left;
