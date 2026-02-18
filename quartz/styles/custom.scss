@@ -64,11 +64,11 @@ pre:has(>code.mermaid) {
 	}
 	
 	.tooltip {
-  position: relative;
   cursor: help;
 }
 
 .tooltip .tooltiptext {
+  position: relative;
   visibility: hidden;
   width: 300px;
   height: 300px;
@@ -76,6 +76,7 @@ pre:has(>code.mermaid) {
   background-color: var(--light);
   color: var(--dark);
   text-align: left;
+  text-size: 0.8em;
   border-radius: 4px;
   padding: 6px;
   position: absolute;
