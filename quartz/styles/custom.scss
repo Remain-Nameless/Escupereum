@@ -64,18 +64,18 @@ pre:has(>code.mermaid) {
 	}
 	
 	
-const popover = document.querySelectorAll("[popovertarget][data-trigger='hover']");
+const popover = document.querySelectorAll("[popovertarget][data-trigger='hover']")
 
 popover.forEach((e) => {
-  const target = document.querySelector("#" + e.getAttribute("popovertarget"));
+  const target = document.querySelector("#" + e.getAttribute("popovertarget"))
   e.addEventListener("mouseover",()=>{
-    target.showPopover();
-  });
-  
+    target.showPopover()
+  })
+ 
   e.addEventListener("mouseout",()=>{
-    target.hidePopover();
-  });
-});
+    target.hidePopover()
+  })
+})
 
 .tooltip {
   bottom: anchor(bottom);
