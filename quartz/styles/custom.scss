@@ -70,6 +70,10 @@ pre:has(>code.mermaid) {
   cursor: help;
 }
 
+    .tooltip:hover {
+	visibility: hidden;
+	}
+
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 300px;
