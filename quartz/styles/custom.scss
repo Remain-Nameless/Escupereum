@@ -69,6 +69,8 @@ pre:has(>code.mermaid) {
   display: inline;
   width: relative;
   cursor: help;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
     .tooltip:hover {
