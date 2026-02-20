@@ -84,7 +84,6 @@ Component.Explorer({
 }),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
-	Component.ExplorerExcludeClass(),
   ],
 }
 

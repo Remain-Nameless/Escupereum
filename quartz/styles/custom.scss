@@ -69,24 +69,17 @@ pre:has(>code.mermaid) {
   scrollbar-width: thin;
 }
 
-// quartz/styles/custom.scss
-
 body.tag-explorerexclude {
   background-color: black !important;
   color: #ad3232 !important;
-}
 
-// Чтобы все элементы (включая заголовки, ссылки и т.д.) тоже стали нужного цвета
-body.tag-explorerexclude * {
-  color: #ad3232 !important;
-}
+  // Если нужно переопределить цвета всех элементов
+  * {
+    color: #ad3232 !important;
+  }
 
-// Если нужно изменить фон шапки
-body.tag-explorerexclude .page-header {
-  background-color: black !important;
-}
-
-// Если у ссылок есть свои цвета, можно уточнить
-body.tag-explorerexclude a {
-  color: #ad3232 !important;
+  // Для хедера, если он отдельно
+  .page-header {
+    background-color: black !important;
+  }
 }

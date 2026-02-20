@@ -24,7 +24,6 @@ import Comments from "./Comments"
 import LinksHeader from "./LinksHeader"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
-import ExplorerExcludeClass from "./ExplorerExcludeClass"
 
 export {
   ArticleTitle,
@@ -53,5 +52,4 @@ export {
   Comments,
   Flex,
   ConditionalRender,
-  ExplorerExcludeClass,
 }
