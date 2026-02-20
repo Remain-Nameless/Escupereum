@@ -1,12 +1,14 @@
-import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 // @ts-ignore
-import script from "./scripts/randomPage.inline"
-import style from "./styles/randomPage.scss"
+import script from "./scripts/_randomPage.inline"
+import style from "./styles/_randomPage.scss"
+import { classNames } from "../util/lang"
 
-export default (() => {
-    function RandomPageButton() {
-        return (
-            <div id="random-page-button" class="random-page">
+const RandomPageButton: QuartzComponent = ({ displayClass, fileData }: QuartzComponentProps) => {
+    return (
+        <div id="random-page-button" class={classNames(displayClass,  "random-page")}>
+            {/* <ul>
+                <li> */}
                 <svg y="0px" x="0px" viewBox="0 0 316 316">
                     <title>Random page</title>
                     <g>
@@ -19,10 +21,13 @@ export default (() => {
                         <ellipse class="random-page-ellipse" ry="20" rx="20" cy="158" cx="108" />
                     </g>
                 </svg>
-            </div>
-        )
-    }
-    RandomPageButton.css = style
-    RandomPageButton.afterDOMLoaded = script
-    return RandomPageButton
-}) satisfies QuartzComponentConstructor
+                {/* </li>
+            </ul> */}
+            
+            {/* <h3>Случайная страница 🎲</h3> */}
+        </div>
+    )
+}
+RandomPageButton.css = style
+RandomPageButton.afterDOMLoaded = script
+export default (() => RandomPageButton) satisfies QuartzComponentConstructor
