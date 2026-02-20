@@ -32,29 +32,19 @@ pre:has(>code.mermaid) {
         img {
             width: 85px;
         }
-@media #{$mobile} {
-  .title-logo {
-      display: none;
-  }
-}
     }
     #header-text {
         overflow-wrap: unset;
     }
 	
 
-.icon-header {
+	.icon-header {
     margin: 0;
     transition: transform 0.2s ease;
     &:hover {
         transform: scale(1.05);
     }
-@media #{$mobile} {
-  .icon-header {
-      display: none;
-  }
-}
-}
+	}
 	
 	
 .poem {
