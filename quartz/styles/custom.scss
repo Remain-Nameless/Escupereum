@@ -63,3 +63,8 @@ pre:has(>code.mermaid) {
 		font-family: "Courier New", monospace;
 	}
 	
+.poem {
+  overflow: scroll;
+  scrollbar-color: var(--light) var(--dark);
+  scrollbar-width: thin;
+}
