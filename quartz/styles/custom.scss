@@ -61,18 +61,3 @@ pre:has(>code.mermaid) {
   scrollbar-color: #F7E6D4 #232635;
   scrollbar-width: thin;
 }
-
-body.tag-explorerexclude {
-  background-color: black !important;
-  color: #ad3232 !important;
-
-  // Если нужно переопределить цвета всех элементов
-  * {
-    color: #ad3232 !important;
-  }
-
-  // Для хедера, если он отдельно
-  .page-header {
-    background-color: black !important;
-  }
-}
