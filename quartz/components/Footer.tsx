@@ -2,8 +2,9 @@ import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } fro
 import style from "./styles/footer.scss"
 import { version } from "../../package.json"
 import { i18n } from "../i18n"
-import script from "./scripts/randomPage.inline.ts"
-import RandomPageButton from "./RandomPageButton"
+// Импортируем скрипт для случайной страницы
+// @ts-ignore
+import script from "./scripts/randomPage.inline"
 
 interface Options {
   links: Record<string, string>
@@ -15,27 +16,28 @@ export default ((opts?: Options) => {
     const links = opts?.links ?? []
     return (
       <footer class={`${displayClass ?? ""}`}>
-          <li>
-            <a href="#">
-            В начало страницы ↑
-            </a> 
-          </li>	  
         <p>
           {i18n(cfg.locale).components.footer.createdWith}{" "}
           <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year}
         </p>
         <ul>
           {Object.entries(links).map(([text, link]) => (
-            <li>
+            <li key={link}>
               <a href={link}>{text}</a>
             </li>
           ))}
         </ul>
-		<p></p> 
+        {/* Блок с дополнительными ссылками */}
         <ul>
           <li>
+            <a href="#">
+              В начало страницы ↑
+            </a> 
+          </li>
+          <li>
+            {/* ВАЖНО: id должен быть именно таким, как в скрипте */}
             <a id="random-page-button">
-            Случайная страница 🎲
+              Случайная страница 🎲
             </a>
           </li>
         </ul>
@@ -44,5 +46,7 @@ export default ((opts?: Options) => {
   }
 
   Footer.css = style
+  // Подключаем скрипт к футеру
+  Footer.afterDOMLoaded = script
   return Footer
 }) satisfies QuartzComponentConstructor
