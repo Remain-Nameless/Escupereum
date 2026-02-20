@@ -48,15 +48,89 @@
 //  }
 //}
 
-@media screen and ($mobile) {
-  #links-header {
-    display: block;
-    overflow: scroll;
-    white-space: nowrap;
-  
-    & a.links-header-item {
-      box-sizing: unset;
-      width: unset;
+.links-header-container {
+  position: relative;
+}
+
+/* Кнопка-гамбургер видна только на мобильных */
+.links-header-toggle.mobile-only {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--darkgray);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  width: 100%;
+  text-align: left;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+/* Контейнер со ссылками */
+.links-header-content {
+  /* По умолчанию скрыт на мобильных */
+  @media (max-width: 768px) {
+    display: none;
+
+    &.expanded {
+      display: block;
     }
-	}
-	}
+  }
+
+  /* На десктопе всегда виден */
+  @media (min-width: 769px) {
+    display: block;
+  }
+}
+
+/* Заголовок "Разделы" показываем только на десктопе */
+.links-header-title.desktop-only {
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Вертикальное расположение ссылок */
+.links-header-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0.25rem 0;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--darkgray);
+      text-decoration: none;
+      padding: 0.25rem 0;
+
+      &:hover {
+        color: var(--secondary);
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        stroke: currentColor;
+      }
+    }
+  }
+}
