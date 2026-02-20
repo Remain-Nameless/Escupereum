@@ -1,6 +1,5 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-// @ts-ignore
-import script from "./scripts/randomPage.inline"
+import script from "./scripts/randomPage.inline.ts"
 import style from "./styles/randomPage.scss"
 import { classNames } from "../util/lang"
 
