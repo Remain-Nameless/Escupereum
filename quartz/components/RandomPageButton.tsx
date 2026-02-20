@@ -4,11 +4,14 @@ import script from "./scripts/randomPage.inline"
 import style from "./styles/randomPage.scss"
 import { classNames } from "../util/lang"
 
-const RandomPageButton: QuartzComponent = ({ displayClass, fileData }: QuartzComponentProps) => {
+const RandomPageButton: QuartzComponent = ({ displayClass, fileData, children }: QuartzComponentProps) => {
     return (
-        <div id="random-page-button" class={classNames(displayClass,  "random-page")}>
-            {/* <ul>
-                <li> */}
+        <div id="random-page-button" class={classNames(displayClass, "random-page")}>
+            {children ? (
+                // Если переданы дети (например, текст), отображаем их
+                <span class="random-page-text">{children}</span>
+            ) : (
+                // Иначе показываем иконку по умолчанию
                 <svg y="0px" x="0px" viewBox="0 0 316 316">
                     <title>Random page</title>
                     <g>
@@ -21,13 +24,11 @@ const RandomPageButton: QuartzComponent = ({ displayClass, fileData }: QuartzCom
                         <ellipse class="random-page-ellipse" ry="20" rx="20" cy="158" cx="108" />
                     </g>
                 </svg>
-                {/* </li>
-            </ul> */}
-            
-            {/* <h3>Случайная страница 🎲</h3> */}
+            )}
         </div>
     )
 }
+
 RandomPageButton.css = style
 RandomPageButton.afterDOMLoaded = script
 export default (() => RandomPageButton) satisfies QuartzComponentConstructor

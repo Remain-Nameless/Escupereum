@@ -23,3 +23,12 @@
   stroke: var(--darkgray);
   transition: stroke 0.5s ease;
 }
+
+.random-page-text {
+  cursor: pointer;
+  color: var(--darkgray);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
