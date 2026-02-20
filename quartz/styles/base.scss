@@ -513,9 +513,13 @@ code {
   font-family: var(--codeFont);
   border-radius: 0px;
   background: none;
-  ::selection {
-    color: #ad3232;
 }
+
+pre code::selection,
+code::selection {
+  color: #ad3232 !important;
+  /* Можно также задать фон выделения, если нужно, например: */
+  /* background: rgba(173, 50, 50, 0.2) !important; */
 }
 
 .clipboard-button {
