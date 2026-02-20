@@ -34,6 +34,8 @@ export default ((opts?: Options) => {
               В начало страницы ↑
             </a> 
           </li>
+        </ul>
+		<ul>
           <li>
             {/* ВАЖНО: id должен быть именно таким, как в скрипте */}
             <a id="random-page-button">
