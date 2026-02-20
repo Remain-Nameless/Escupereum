@@ -21,6 +21,8 @@ export default ((opts?: Options) => {
             <a href="#">
               В начало страницы ↑
             </a> 
+			</li>
+			<li>
             {/* ВАЖНО: id должен быть именно таким, как в скрипте */}
             <a id="random-page-button">
               Случайная страница 🎲
