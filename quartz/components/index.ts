@@ -24,6 +24,7 @@ import Comments from "./Comments"
 import LinksHeader from "./LinksHeader"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
+import RandomPageButton from "./RandomPageButton"
 
 export {
   ArticleTitle,
