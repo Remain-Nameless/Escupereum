@@ -52,3 +52,12 @@ pre:has(>code.mermaid) {
   scrollbar-color: #F7E6D4 #232635 !important;
   scrollbar-width: thin !important;
 }
+
+.invisible {
+  color: transparent !important;
+
+  &::selection {
+    color: var(--dark) !important;
+    background: transparent !important;
+  }
+}
