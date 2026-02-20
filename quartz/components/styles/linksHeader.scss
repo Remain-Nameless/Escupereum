@@ -44,5 +44,6 @@
       // Or style differently if header is different on mobile
       justify-content: center; // Example: center on mobile if shown
       gap: 1em;
+	  background-color: var (--light) !important;
   }
 }
