@@ -30,11 +30,16 @@ export default ((opts?: Options) => {
             </li>
           ))}
         </ul>
-		<p></p> 
+        <p></p> 
         <ul>
           <li>
+            <a href="#">
+            К началу страницы ↑
+            </a> 
+          </li>
+          <li>
             <a id="random-page-button">
-            Случайная страница 🎲
+            Random Page 🎲
             </a>
           </li>
         </ul>
