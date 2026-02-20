@@ -49,6 +49,6 @@ pre:has(>code.mermaid) {
 	
 .poem {
   overflow: scroll;
-  scrollbar-color: #F7E6D4 #232635;
-  scrollbar-width: thin;
+  scrollbar-color: #F7E6D4 #232635 !important;
+  scrollbar-width: thin !important;
 }
