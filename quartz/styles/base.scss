@@ -464,7 +464,7 @@ pre {
     background: none;
 	color: transparent !important;
     padding: 0;
-    font-size: 1.4vw;
+    font-size: vmax;
     counter-reset: line;
     counter-increment: line 0;
     display: grid;
@@ -508,7 +508,7 @@ pre {
 }
 
 code {
-  font-size: 1.4vw;
+  font-size: vmax;
   color: transparent !important;
   font-family: var(--codeFont);
   border-radius: 0px;
