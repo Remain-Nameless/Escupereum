@@ -1,7 +1,7 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 // @ts-ignore
-import script from "./scripts/_randomPage.inline"
-import style from "./styles/_randomPage.scss"
+import script from "./scripts/randomPage.inline"
+import style from "./styles/randomPage.scss"
 import { classNames } from "../util/lang"
 
 const RandomPageButton: QuartzComponent = ({ displayClass, fileData }: QuartzComponentProps) => {
