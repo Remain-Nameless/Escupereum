@@ -25,20 +25,13 @@ interface Options {
 }
 
 const defaultOptions: Options = {
-  markdownLinkResolution: "shortest",
+  markdownLinkResolution: "absolute",
   prettyLinks: true,
   openLinksInNewTab: false,
   lazyLoad: false,
-  externalLinkIcon: false,
+  externalLinkIcon: true,
 }
-//фильтрация ссылок на отсутствующие страницы
-const isAvailableInternalLink = (slug: SimpleSlug, allSlugs: FullSlug[]) => {
-  // if the slug is the index, it's always available
-  if(slug.endsWith("index") || slug.endsWith("index.html") || slug.endsWith("/")) return true
-  // if the slug is the tags page, it's always available
-  if(slug.startsWith("tags/")) return true
-  return allSlugs.some((s) => s.startsWith(slug))
-}
+
 export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
   const opts = { ...defaultOptions, ...userOpts }
   return {
@@ -130,9 +123,6 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
                   const simple = simplifySlug(full)
                   outgoing.add(simple)
                   node.properties["data-slug"] = full
-				  
-					// Добавляет класс missing для ссылок на отсутствующие страницы
-                  if (!isAvailableInternalLink(simple, ctx.allSlugs)) classes.push("missing")
                 }
 
                 // rewrite link internals if prettylinks is on
