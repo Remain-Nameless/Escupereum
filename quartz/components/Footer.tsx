@@ -31,11 +31,13 @@ export default ((opts?: Options) => {
           ))}
         </ul>
 		<p></p> 
-		<ul>
-			<li>
-				<RandomPageButton>Случайная страница 🎲</RandomPageButton>
-			</li>
-		</ul>
+        <ul>
+          <li>
+            <a id="random-page-button">
+            Случайная страница 🎲
+            </a>
+          </li>
+        </ul>
       </footer>
     )
   }
