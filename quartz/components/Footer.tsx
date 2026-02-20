@@ -5,7 +5,6 @@ import { i18n } from "../i18n"
 // Импортируем скрипт для случайной страницы
 // @ts-ignore
 import script from "./scripts/randomPage.inline"
-import script from "./scripts/tagBodyClass.inline"
 
 interface Options {
   links: Record<string, string>
