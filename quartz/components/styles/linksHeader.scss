@@ -38,12 +38,23 @@
 }
 
 // --- Mobile Styles: Hide component ---
-@media #{$mobile} {
+//@media #{$mobile} {
+//  #links-header {
+//      display: inline-block; // Hide if mobile uses separate nav
+//      // Or style differently if header is different on mobile
+//      justify-content: center; // Example: center on mobile if shown
+//      gap: 1em;
+//	  background-color: var (--light) !important;
+//  }
+//}
+
+@media screen and ($mobile) {
   #links-header {
-      display: inline-block; // Hide if mobile uses separate nav
-      // Or style differently if header is different on mobile
-      justify-content: center; // Example: center on mobile if shown
-      gap: 1em;
-	  background-color: var (--light) !important;
-  }
-}
+    display: block;
+    overflow: scroll;
+    white-space: nowrap;
+  
+    & a.links-header-item {
+      box-sizing: unset;
+      width: unset;
+    }
