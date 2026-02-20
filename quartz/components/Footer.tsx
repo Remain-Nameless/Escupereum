@@ -16,10 +16,17 @@ export default ((opts?: Options) => {
     const links = opts?.links ?? []
     return (
       <footer class={`${displayClass ?? ""}`}>
-        <p>
-          {i18n(cfg.locale).components.footer.createdWith}{" "}
-          <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year}
-        </p>
+        <ul>
+          <li>
+            <a href="#">
+              В начало страницы ↑
+            </a> 
+            {/* ВАЖНО: id должен быть именно таким, как в скрипте */}
+            <a id="random-page-button">
+              Случайная страница 🎲
+            </a>
+          </li>
+        </ul>
         <ul>
           {Object.entries(links).map(([text, link]) => (
             <li key={link}>
@@ -27,22 +34,11 @@ export default ((opts?: Options) => {
             </li>
           ))}
         </ul>
+		<p>
+		{i18n(cfg.locale).components.footer.createdWith}{" "}
+        <a href="https://quartz.jzhao.xyz/">Quartz v{version}</a> © {year}
+        </p>
         {/* Блок с дополнительными ссылками */}
-        <ul>
-          <li>
-            <a href="#">
-              В начало страницы ↑
-            </a> 
-          </li>
-        </ul>
-		<ul>
-          <li>
-            {/* ВАЖНО: id должен быть именно таким, как в скрипте */}
-            <a id="random-page-button">
-              Случайная страница 🎲
-            </a>
-          </li>
-        </ul>
       </footer>
     )
   }
