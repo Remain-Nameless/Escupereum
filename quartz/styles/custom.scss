@@ -32,9 +32,11 @@ pre:has(>code.mermaid) {
         img {
             width: 85px;
         }
-	.mobile-only {
-	display: none;
-	}
+@media #{$mobile} {
+  .title-logo {
+      display: none;
+  }
+}
     }
     #header-text {
         overflow-wrap: unset;
@@ -47,25 +49,16 @@ pre:has(>code.mermaid) {
     &:hover {
         transform: scale(1.05);
     }
-	.mobile-only {
-	display: none;
-	}
+@media #{$mobile} {
+  .icon-header {
+      display: none;
+  }
 }
 	
 	
-	.secret-text {
-		color: transparent !important;
-		font-family: "Courier New", monospace;
-	}
-
-	.secret-page {
-		color: #702F2F !important;
-		font-family: "Courier New", monospace;
-	}
-	
 .poem {
   overflow: scroll;
-  scrollbar-color: var(--light) var(--dark);
+  scrollbar-color: #F7E6D4 #232635;
   scrollbar-width: thin;
 }
 
