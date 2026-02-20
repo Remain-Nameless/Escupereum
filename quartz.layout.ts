@@ -10,6 +10,7 @@ export const sharedPageComponents: SharedLayout = {
     links: {
       "Следите за обновлениями в Telegram-канале": "https://t.me/rema1nnameless",
     },
+	Component.RandomPageButton(),
   }),
 }
 
