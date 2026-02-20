@@ -513,6 +513,9 @@ code {
   font-family: var(--codeFont);
   border-radius: 0px;
   background: none;
+  ::selection {
+    color: #ad3232;
+}
 }
 
 .clipboard-button {
