@@ -462,7 +462,7 @@ pre {
 
   & > code {
     background: none;
-	color: transparent !important;
+	color: var(--dark);
     padding: 0;
     font-size: vmax;
     counter-reset: line;
@@ -509,16 +509,10 @@ pre {
 
 code {
   font-size: vmax;
-  color: transparent !important;
+  color: transparent var(--dark);
   font-family: var(--codeFont);
   border-radius: 0px;
   background: none;
-}
-
-pre code::selection,
-code::selection {
-  color: #ad3232 !important;
-  background: transparent !important;
 }
 
 .clipboard-button {
@@ -677,4 +671,32 @@ div.gallery-item img {
 div.gallery-item div.desc {
   padding: 15px;
   text-align: center;
+}
+
+
+/* Стилизация скроллбара для всей страницы */
+html {
+  scrollbar-color: var(--lightgray) transparent;
+  scrollbar-width: thin;
+}
+
+/* Для WebKit-браузеров (Chrome, Safari, Edge) */
+html::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--lightgray);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: var(--gray);
 }

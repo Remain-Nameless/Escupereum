@@ -113,6 +113,8 @@ button.desktop-explorer {
   overflow: hidden;
   overflow-y: auto;
   margin-top: 0.5rem;
+  font-size: 0.95rem;     
+  line-height: 1.3rem;     
 
   & ul {
     list-style: none;
@@ -315,5 +317,31 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
 @media not all and ($mobile) {
   .explorer-links-header.mobile-only {
     display: none;
+  }
+}
+
+
+.explorer-ul {
+  scrollbar-color: var(--lightgray) transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--lightgray);
+    border-radius: 3px;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--gray);
   }
 }

@@ -4,7 +4,9 @@ import * as Component from "./quartz/components"
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [Component.LinksHeader()],
+  header: [
+  Component.DesktopOnly(Component.LinksHeader())
+  ],
   afterBody: [],
   footer: Component.Footer({
     links: {
@@ -25,16 +27,17 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    Component.PageTitle(),
+    Component.DesktopOnly(Component.PageTitle()),
     Component.MobileOnly(Component.Spacer()),
     Component.Flex({
       components: [
+		{ Component: Component.ReaderMode() },
+        { Component: Component.Darkmode() },
         {
           Component: Component.Search(),
           grow: true,
         },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
+		{ Component: Component.MobileOnly(Component.LinksHeader()) },
       ],
     }),
 Component.Explorer({
@@ -102,7 +105,6 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-	Component.DesktopOnly(Component.LinksHeader({ variant: "desktop" })),
     Component.Explorer({
 	title: "Содержание", // title of the explorer component
   folderClickBehavior: "collapse", // what happens when you click a folder ("link" to navigate to folder page on click or "collapse" to collapse folder on click)

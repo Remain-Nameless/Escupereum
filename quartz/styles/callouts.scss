@@ -117,6 +117,44 @@
     --border: var(--lightgray);
     --callout-icon: var(--callout-icon-quote);
   }
+  
+&[data-callout="author"] {
+  --color: var(--darkgray);
+  --border: color-mix(in srgb, var(--secondary) 30%, transparent);
+  --bg: color-mix(in srgb, var(--lightgray) 10%, transparent);
+  --callout-icon: var(--callout-icon-quote);
+
+  display: flex;
+  flex-direction: column-reverse;
+
+  .callout-title {
+    justify-content: flex-end;
+    padding-right: 8px;    
+	font-family: 'Cormorant Infant', serif;  // Рукописный шрифт
+	font-weight: 560;
+	font-style: italic;
+	font-size: 1rem;
+  }
+  
+  .callout-content {
+    font-family: 'Cormorant Infant', serif;  // Рукописный шрифт
+	font-weight: 560;
+	font-style: italic;
+    font-size: 1.5rem;               // Немного крупнее для выразительности
+    line-height: 1.7;                 // Улучшаем читаемость
+  }
+
+  // Мобильные устройства
+  @media (max-width: 768px) {
+    .callout-title,
+    .callout-content {
+      font-size: 1.2rem;   // Одинаковый, умеренный размер
+    }
+    .callout-content {
+      line-height: 1.5;     // Чуть уменьшаем межстрочник для компактности
+    }
+  }
+}
 
   &.is-collapsed {
     & > .callout-title > .fold-callout-icon {

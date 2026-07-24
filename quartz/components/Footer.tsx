@@ -22,12 +22,6 @@ export default ((opts?: Options) => {
               В начало страницы ↑
             </a> 
 			</li>
-			<li>
-            {/* ВАЖНО: id должен быть именно таким, как в скрипте */}
-            <a id="random-page-button">
-              Случайная страница 🎲
-            </a>
-          </li>
         </ul>
         <ul>
           {Object.entries(links).map(([text, link]) => (
