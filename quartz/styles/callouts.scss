@@ -126,32 +126,49 @@
 
   display: flex;
   flex-direction: column-reverse;
+  padding: 0.3rem 1rem; // уменьшаем внешние отступы контейнера
 
   .callout-title {
     justify-content: flex-end;
-    padding-right: 8px;    
-	font-family: 'Cormorant Infant', serif;  // Рукописный шрифт
-	font-weight: 560;
-	font-style: italic;
-	font-size: 1rem;
+    padding: 0.2rem 0; // минимальные отступы
+    font-family: 'Cormorant Infant', serif;
+    font-weight: 560;
+    font-style: italic;
+    font-size: 1.1rem;
   }
   
   .callout-content {
-    font-family: 'Cormorant Infant', serif;  // Рукописный шрифт
-	font-weight: 560;
-	font-style: italic;
-    font-size: 1.5rem;               // Немного крупнее для выразительности
-    line-height: 1.7;                 // Улучшаем читаемость
+    font-family: 'Cormorant Infant', serif;
+    font-weight: 560;
+    font-style: italic;
+    line-height: 1.7;
+    font-size: 1.3rem;
+    
+    // Отключаем грид и переходы
+    display: block !important;
+    transition: none !important;
+    overflow: visible !important;
+    padding: 0.2rem 0; // минимальные отступы
+
+    // Убираем отступ у первого элемента
+    & > :first-child {
+      margin-top: 0 !important;
+    }
+
+    // Убираем лишние отступы у абзацев
+    p {
+      margin: 0.2rem 0;
+    }
   }
 
   // Мобильные устройства
   @media (max-width: 768px) {
     .callout-title,
     .callout-content {
-      font-size: 1.2rem;   // Одинаковый, умеренный размер
+      font-size: 1.2rem;
     }
     .callout-content {
-      line-height: 1.5;     // Чуть уменьшаем межстрочник для компактности
+      line-height: 1.5;
     }
   }
 }

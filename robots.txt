@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://remain-nameless.github.io/Escupereum/sitemap.xml
