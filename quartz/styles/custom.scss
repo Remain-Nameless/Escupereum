@@ -1,0 +1,63 @@
+@use "./base.scss";
+
+// put your custom CSS here!
+/* В файл custom.scss или через встроенный стиль */
+.tag-link[href*="explorerexclude"] {
+  display: none !important;
+}
+
+/* Или скрыть весь li с таким тегом */
+.tags li:has(a[href*="explorerexclude"]) {
+  display: none !important;
+}
+
+//credits: eledah (https://github.com/eledah)
+
+// Mermaid fix: https://ifard.ir/quartz-configuration#%D8%AF%DB%8C%D8%A7%DA%AF%D8%B1%D8%A7%D9%85
+
+.mermaid {
+	direction: rtl !important;
+    text-align: center;
+}
+
+pre:has(>code.mermaid) {
+	background-color: transparent;
+}
+
+// title logo
+	
+    .title-logo {
+        flex-direction: row;
+        align-items: center;
+        img {
+            width: 85px;
+        }
+    }
+    #header-text {
+        overflow-wrap: unset;
+    }
+	
+
+	.icon-header {
+    margin: 0;
+    transition: transform 0.2s ease;
+    &:hover {
+        transform: scale(1.05);
+    }
+	}
+	
+	
+.poem {
+  overflow: scroll;
+  scrollbar-color: #F7E6D4 #232635 !important;
+  scrollbar-width: thin !important;
+}
+
+.invisible {
+  color: transparent !important;
+
+  &::selection {
+    color: var(--dark) !important;
+    background: transparent !important;
+  }
+}

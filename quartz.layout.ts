@@ -1,0 +1,126 @@
+import { PageLayout, SharedLayout } from "./quartz/cfg"
+import * as Component from "./quartz/components"
+
+// components shared across all pages
+export const sharedPageComponents: SharedLayout = {
+  head: Component.Head(),
+  header: [Component.LinksHeader()],
+  afterBody: [],
+  footer: Component.Footer({
+    links: {
+      "Следите за обновлениями в Telegram-канале": "https://t.me/rema1nnameless",
+    },
+  }),
+}
+
+// components for pages that display a single page (e.g. a single note)
+export const defaultContentPageLayout: PageLayout = {
+  beforeBody: [
+    Component.ConditionalRender({
+      component: Component.Breadcrumbs(),
+      condition: (page) => page.fileData.slug !== "index",
+    }),
+    Component.ArticleTitle(),
+    Component.ContentMeta(),
+    Component.TagList(),
+  ],
+  left: [
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+        { Component: Component.ReaderMode() },
+      ],
+    }),
+Component.Explorer({
+	title: "Содержание", // title of the explorer component
+  folderClickBehavior: "collapse", // what happens when you click a folder ("link" to navigate to folder page on click or "collapse" to collapse folder on click)
+  folderDefaultState: "collapsed", // default state of folders ("collapsed" or "open")
+  useSavedState: true, // whether to use local storage to save "state" (which folders are opened) of explorer
+  // omitted but shown later
+  filterFn: (node) => {
+    // exclude files with the tag "explorerexclude"
+    return node.data?.tags?.includes("explorerexclude", "глоссарий") !== true
+  },
+  // what order to apply functions in
+  order: ["filter", "map", "sort"],
+}),
+  ],
+  right: [
+    Component.Graph({
+	localGraph: {
+    drag: true, // whether to allow panning the view around
+    zoom: true, // whether to allow zooming in and out
+    depth: 1, // how many hops of notes to display
+    scale: 1.2, // default view scale
+    repelForce: 0.5, // how much nodes should repel each other
+    centerForce: 0.3, // how much force to use when trying to center the nodes
+    linkDistance: 25, // how long should the links be by default?
+    fontSize: 0.8, // what size should the node labels be?
+    opacityScale: 3, // how quickly do we fade out the labels when zooming out?
+    removeTags: ["глоссарий", "explorerexclude"], // what tags to remove from the graph
+    showTags: true, // whether to show tags in the graph
+    enableRadial: true, // whether to constrain the graph, similar to Obsidian
+  },
+  globalGraph: {
+    drag: true,
+    zoom: true,
+    depth: -1,
+    scale: 0.9,
+    repelForce: 0.5,
+    centerForce: 0.3,
+    linkDistance: 30,
+    fontSize: 0.6,
+    opacityScale: 1,
+    removeTags: ["глоссарий", "explorerexclude"], // what tags to remove from the graph
+    showTags: true, // whether to show tags in the graph
+    enableRadial: true, // whether to constrain the graph, similar to Obsidian
+  },
+}),
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Backlinks(),
+  ],
+}
+
+// components for pages that display lists of pages  (e.g. tags or folders)
+export const defaultListPageLayout: PageLayout = {
+  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  left: [
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+      ],
+    }),
+	Component.DesktopOnly(Component.LinksHeader({ variant: "desktop" })),
+    Component.Explorer({
+	title: "Содержание", // title of the explorer component
+  folderClickBehavior: "collapse", // what happens when you click a folder ("link" to navigate to folder page on click or "collapse" to collapse folder on click)
+  folderDefaultState: "collapsed", // default state of folders ("collapsed" or "open")
+  useSavedState: true, // whether to use local storage to save "state" (which folders are opened) of explorer
+  // omitted but shown later
+  filterFn: (node) => {
+    // set containing names of everything you want to filter out
+    const omit = new Set(["Hidden"])
+ 
+    // can also use node.slug or by anything on node.data
+    // note that node.data is only present for files that exist on disk
+    // (e.g. implicit folder nodes that have no associated index.md)
+    return !omit.has(node.displayName.toLowerCase())
+  },
+  // what order to apply functions in
+  order: ["filter", "map", "sort"],
+}),
+  ],
+  right: [],
+}

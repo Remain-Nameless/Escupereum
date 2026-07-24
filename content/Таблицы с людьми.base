@@ -1,0 +1,35 @@
+filters:
+  and:
+    - file.path.contains("Персоналии")
+views:
+  - type: table
+    name: Эпоха Знаний/ученые
+    filters:
+      and:
+        - file.tags.containsAll("люди/ученые", "Эпоха_Знаний")
+    order:
+      - file.name
+      - Годы
+      - Специализация
+      - Страна
+      - Деятельность
+    cardSize: 190
+    imageAspectRatio: 1
+    image: note.img
+    rowHeight: medium
+  - type: table
+    name: представление
+  - type: table
+    name: Все люди
+    order:
+      - file.name
+      - Годы
+      - Специализация
+      - Страна
+      - Деятельность
+      - file.tags
+      - Эпоха
+    cardSize: 190
+    imageAspectRatio: 1
+    image: note.img
+    rowHeight: medium
