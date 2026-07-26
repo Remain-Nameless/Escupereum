@@ -54,6 +54,21 @@ pre:has(>code.mermaid) {
     color: var(--dark) !important;
     background: transparent !important;
   }
+
+  // Для всех ссылок внутри
+  a {
+    color: transparent !important;
+    background: transparent !important;
+    text-decoration: none !important;
+    // pointer-events и cursor не переопределяем – оставляем стандартное поведение
+  }
+
+  // Для состояний ссылок (посещённая, при наведении, активная)
+  a:visited,
+  a:hover,
+  a:active {
+    color: transparent !important;
+  }
 }
 
 /*----infobox callout----*/
