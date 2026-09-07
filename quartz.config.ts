@@ -1,5 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import { Spiral } from "./quartz/plugins/transformers/spiral"
 
 /**
  * Quartz 4 Configuration
@@ -11,7 +12,7 @@ const config: QuartzConfig = {
     pageTitle: "Эскуперей",
     pageTitleSuffix: "",
     enableSPA: true,
-    enablePopovers: true,
+    enablePopovers: false,
     analytics: {
       provider: "plausible",
     },
@@ -35,19 +36,19 @@ const config: QuartzConfig = {
           lightgray: "#d8917d",
           gray: "#b8b8b8",
           darkgray: "#21263f",
-          dark: "#272f56",
-          secondary: "#638885",
+          dark: "#d17a62",         // золотистый для заголовков
+          secondary: "#3d8a8a",
           tertiary: "#84a59d",
           highlight: "rgba(143, 159, 169, 0.15)",
           textHighlight: "#fff23688",
         },
         darkMode: {
-          light: "#232635",
+          light: "#141c2b",        // тёмно-синий фон
           lightgray: "#d8917d",
           gray: "#646464",
-          darkgray: "#f7e6d4",
-          dark: "#f7e6d4",
-          secondary: "#638885",
+          darkgray: "#ece4da",     // кремовый для основного текста
+          dark: "#d4b87a",         // золотистый для заголовков
+          secondary: "#3d8a8a",    // светящийся изумрудно-синий (акцент)
           tertiary: "#84a59d",
           highlight: "rgba(143, 159, 169, 0.15)",
           textHighlight: "#b3aa0288",
@@ -95,7 +96,7 @@ const config: QuartzConfig = {
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
-      Plugin.CustomOgImages(),
+      //Plugin.CustomOgImages(),
     ],
   },
 }
